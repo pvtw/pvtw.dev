@@ -7,6 +7,9 @@ require 'recipe/laravel.php';
 
 set('repository', 'https://github.com/pvtw/pvtw.dev.git');
 
+set('http_user', 'deployer');
+set('writable_mode', 'chown');
+
 add('shared_files', []);
 add('shared_dirs', []);
 add('writable_dirs', []);
