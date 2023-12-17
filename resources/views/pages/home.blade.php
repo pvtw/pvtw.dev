@@ -1,10 +1,10 @@
 <x-app-layout>
     <section class="bg-gradient-to-b from-fuchsia-500 from-60% to-black via-green-500 min-h-screen flex justify-center items-center">
-        <div class="flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-x-8 lg:space-y-0 p-4 mt-8 lg:mt-0">
+        <div class="flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-x-8 lg:space-y-0 p-4 mt-16 lg:mt-0">
             <div class="2xl:w-[24rem] 2xl:h-[24rem] lg:w-64 lg:h-64 lg:block hidden opacity-50">
                 <img src="/images/owl.png" alt="Owl" class="rounded-full">
             </div>
-            <div class="bg-gray-800 bg-opacity-50 p-8 max-w-2xl rounded-xl shadow-2xl text-gr text-gray-100">
+            <div class="bg-gray-800 bg-opacity-50 p-8 max-w-2xl rounded-xl shadow-2xl text-gray-100">
                 <h1 class="font-bold xl:text-3xl text-xl font-mono uppercase">Hi there!</h1>
                 <p class="mt-4 lg:text-lg">
                     My name is Patrick van 't Wout. A software developer living in the Netherlands.
