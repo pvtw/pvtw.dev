@@ -1,24 +1,49 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Deployer;
 
 require 'recipe/laravel.php';
+require 'contrib/php-fpm.php';
 
 // Config
 
+set('application', 'pvtw');
 set('repository', 'https://github.com/pvtw/pvtw.dev.git');
-
-set('http_user', 'deployer');
-set('writable_mode', 'chown');
-
-add('shared_files', []);
-add('shared_dirs', []);
-add('writable_dirs', []);
+set('php_fpm_version', '8.3');
 
 // Hosts
 
 host('pvtw.dev')
     ->set('remote_user', 'deployer')
-    ->set('deploy_path', '~/pvtw.dev');
+    ->set('hostname', 'pvtw.dev')
+    ->set('deploy_path', '/var/www/{{hostname}}');
+
+task('npm:install', function () {
+    cd('{{release_or_current_path}}');
+    run('source $HOME/.nvm/nvm.sh && npm install');
+});
+
+task('npm:run:build', function () {
+    cd('{{release_or_current_path}}');
+    run('source $HOME/.nvm/nvm.sh && npm run build');
+});
+
+task('deploy', [
+    'deploy:prepare',
+    'deploy:vendors',
+    'artisan:storage:link',
+    'artisan:config:cache',
+    'artisan:route:cache',
+    'artisan:view:cache',
+    'artisan:event:cache',
+    //'artisan:migrate',
+    'npm:install',
+    'npm:run:build',
+    'deploy:publish',
+    'php-fpm:reload',
+]);
 
 // Hooks
 
