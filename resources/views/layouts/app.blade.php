@@ -10,6 +10,12 @@
 
         <title>{{ $title }} - Pvtw</title>
 
+        <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="64x64" href="/images/favicons/favicon-64x64.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+        <link rel="manifest" href="/images/favicons/site.webmanifest">
+
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
