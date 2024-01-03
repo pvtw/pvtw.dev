@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Deployer;
 
 require 'recipe/laravel.php';
-require 'contrib/php-fpm.php';
 
 // Config
 
@@ -42,7 +41,6 @@ task('deploy', [
     'npm:install',
     'npm:run:build',
     'deploy:publish',
-    'php-fpm:reload',
 ]);
 
 // Hooks
