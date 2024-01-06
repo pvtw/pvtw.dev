@@ -19,12 +19,12 @@ host('pvtw.dev')
     ->set('hostname', 'pvtw.dev')
     ->set('deploy_path', '/var/www/{{hostname}}');
 
-task('npm:install', function () {
+task('npm:install', function (): void {
     cd('{{release_or_current_path}}');
     run('source $HOME/.nvm/nvm.sh && npm install');
 });
 
-task('npm:run:build', function () {
+task('npm:run:build', function (): void {
     cd('{{release_or_current_path}}');
     run('source $HOME/.nvm/nvm.sh && npm run build');
 });
