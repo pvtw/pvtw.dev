@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout fixed="true">
     <section class="bg-gradient-to-b from-fuchsia-500 from-60% to-black via-green-500 min-h-screen flex justify-center items-center">
         <div class="flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-x-8 lg:space-y-0 p-4 mt-16 lg:mt-0">
             <div class="2xl:w-[24rem] 2xl:h-[24rem] lg:w-64 lg:h-64 lg:block hidden opacity-50">

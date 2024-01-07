@@ -1,7 +1,8 @@
 @props([
     "title" => "Patrick van 't Wout",
     "description" => "Hi there! My name is Patrick van 't Wout and this is my mystical world of code and hacking.",
-    "image" => config('app.url') . "/images/og-image.png"
+    "image" => config('app.url') . "/images/og-image.png",
+    "fixed" => false,
 ])
 
 <!DOCTYPE html>
@@ -41,7 +42,10 @@
     </head>
     <body class="antialiased bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
         <div id="page" class="flex flex-col min-h-screen">
-            <header class="bg-primary text-white flex flex-col sm:flex-row items-start sm:items-center justify-between fixed top-0 w-full shadow z-[9001]"
+            @php
+                $header_position = $fixed ? "fixed" : "sticky";
+            @endphp
+            <header class="bg-primary text-white flex flex-col sm:flex-row items-start sm:items-center justify-between {{ $header_position }} top-0 w-full shadow z-[9001]"
                 @keydown.window.escape="closeIfMobile"
                 x-trap.inert.noscroll="window.innerWidth < 640 && open"
                 x-data="{
