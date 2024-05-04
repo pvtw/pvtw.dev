@@ -36,7 +36,7 @@ task('deploy', [
     'artisan:route:cache',
     'artisan:view:cache',
     'artisan:event:cache',
-    //'artisan:migrate',
+    'artisan:migrate',
     'npm:install',
     'npm:run:build',
     'deploy:publish',
