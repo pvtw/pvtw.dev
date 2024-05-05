@@ -1,4 +1,4 @@
-<x-app-layout title="About Patrick van 't Wout" fixed="true">
+<x-app-layout title="About Patrick van 't Wout" description="This is the page where you find more information about Patrick van 't Wout" fixed="true">
     <section class="relative min-h-screen flex items-center justify-center">
         <div>
             <h1 class="text-3xl md:text-5xl text-primary text-center font-bold dark:text-white">Patrick van 't Wout</h1>
