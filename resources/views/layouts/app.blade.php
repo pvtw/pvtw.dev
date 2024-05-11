@@ -92,7 +92,7 @@
             <footer class="bg-gray-950 text-white">
                 <div class="max-w-md mx-auto p-4 text-sm text-center">
                     <p>
-                        My website is <a href="https://github.com/pvtw/pvtw.dev" class="text-blue-500 hover:underline">open source</a>.
+                        My website is <x-link href="https://github.com/pvtw/pvtw.dev">open source</x-link>.
                         Feel free to contribute if you find a bug or have suggestions to improve my website.
                     </p>
                     <p class="mt-2">Copyright &copy; {{ now()->year }} - Patrick van 't Wout</p>
