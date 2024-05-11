@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Request;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -13,7 +14,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-
+        // If the user is not authenticated when visiting a protected location
+        // Redirect to the 'auth.login' route (The default is 'login')
+        $middleware->redirectGuestsTo(fn (Request $request) => route('auth.login'));
     })
     ->withExceptions(function (Exceptions $exceptions): void {
 
