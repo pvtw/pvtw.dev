@@ -13,6 +13,6 @@ Route::get('/about-me', AboutController::class)->name('about');
 
 Route::middleware(['guest'])->group(function (): void {
     Route::get('/auth/login', LoginController::class)->name('auth.login');
-    Route::get('/auth/github/redirect', [LoginWithGitHubController::class, 'create'])->name('auth.github.create');
-    Route::get('/auth/github/callback', [LoginWithGitHubController::class, 'store'])->name('auth.github.store');
+    //Route::get('/auth/github/redirect', [LoginWithGitHubController::class, 'create'])->name('auth.github.create');
+    //Route::get('/auth/github/callback', [LoginWithGitHubController::class, 'store'])->name('auth.github.store');
 });
