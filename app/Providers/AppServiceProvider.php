@@ -24,9 +24,9 @@ final class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $isProduction = App::isProduction();
-        
-        Model::preventLazyLoading(! $isProduction);
-        Model::preventSilentlyDiscardingAttributes(! $isProduction);
-        Model::preventAccessingMissingAttributes(! $isProduction);
+
+        Model::preventLazyLoading( ! $isProduction);
+        Model::preventSilentlyDiscardingAttributes( ! $isProduction);
+        Model::preventAccessingMissingAttributes( ! $isProduction);
     }
 }
