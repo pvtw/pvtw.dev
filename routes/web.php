@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LoginWithGitHubController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -21,4 +22,15 @@ Route::middleware(['guest'])->group(function (): void {
 
 Route::middleware(['auth'])->group(function (): void {
     Route::post('/auth/logout', LogoutController::class)->name('auth.logout');
+});
+
+Route::controller(ProjectController::class)->name('projects.')->group(function (): void {
+    Route::get('/projects', 'index')->name('index');
+    Route::middleware(['auth', 'admin'])->group(function (): void {
+        Route::get('/projects/create', 'create')->name('create');
+        Route::post('/projects', 'store')->name('store');
+        Route::get('/project/{project}/edit', 'edit')->name('edit');
+        Route::match(['put', 'patch'], '/project/{project}', 'update')->name('update');
+        Route::delete('/project/{project}', 'destroy')->name('destroy');
+    });
 });
