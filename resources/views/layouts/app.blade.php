@@ -83,6 +83,15 @@
                                 About Me
                             </a>
                         </li>
+                        @auth
+                            <li>
+                                <form method="post" action="{{ route('auth.logout') }}">
+                                    @csrf
+
+                                    <button type="submit" class="block text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200">Logout</button>
+                                </form>
+                            </li>
+                        @endauth
                     </ul>
                 </nav>
             </header>
