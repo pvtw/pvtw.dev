@@ -1,7 +1,10 @@
 <x-app-layout>
     <div class="max-w-2xl mx-auto p-4">
-        <div class="border-b border-gray-500">
+        <div class="flex justify-between items-center border-b border-gray-500">
             <h1 class="text-3xl text-primary dark:text-white font-bold pb-4">My Projects</h1>
+            @admin
+                <x-link href="{{ route('projects.create') }}">Create</x-link>
+            @endadmin
         </div>
         <div class="mt-4 space-y-8">
             @foreach($projects as $project)
