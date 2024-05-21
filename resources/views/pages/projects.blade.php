@@ -1,24 +1,11 @@
-<x-app-layout>
+<x-app-layout title="My Projects" description="This is the page where you find my projects.">
     <div class="max-w-2xl mx-auto p-4">
-        <div class="flex justify-between items-center border-b border-gray-500">
+        <div class="border-b border-gray-500">
             <h1 class="text-3xl text-primary dark:text-white font-bold pb-4">My Projects</h1>
-            @admin
-                <x-link href="{{ route('projects.create') }}">Create</x-link>
-            @endadmin
         </div>
         <div class="mt-4 space-y-8">
             @foreach($projects as $project)
                 <div class="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl">
-                    @admin
-                        <aside class="absolute top-0 right-0 flex justify-end items-center space-x-4">
-                            <x-link href="{{ route('projects.edit', $project) }}">Edit</x-link>
-                            <form method="post" action="{{ route('projects.destroy', $project) }}">
-                                @method('delete')
-                                @csrf
-                                <button class="bg-red-500 text-white px-4 py-2 rounded shadow">Delete</button>
-                            </form>
-                        </aside>
-                    @endadmin
                     <header class="flex flex-col p-4 border-b border-gray-500">
                         <h2 class="text-xl text-black dark:text-white font-bold">{{ $project->title }}</h2>
                         <span class="flex items-center space-x-2 text-sm italic mt-2">
