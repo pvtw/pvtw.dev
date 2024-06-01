@@ -1,8 +1,6 @@
 <x-app-layout title="My Projects" description="This is the page where you find my projects.">
     <x-container>
-        <div class="border-b border-gray-500">
-            <h1 class="text-3xl text-primary dark:text-white font-bold pb-4">My Projects</h1>
-        </div>
+        <x-heading>My Projects</x-heading>
         <div class="mt-4 space-y-8">
             @foreach($projects as $project)
                 <div class="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl">
