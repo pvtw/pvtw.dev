@@ -77,6 +77,14 @@
                     <ul class="flex flex-col sm:flex-row sm:space-x-2 sm:space-y-0 space-y-2">
                         <li>
                             <a
+                                href="{{ route('projects.index') }}"
+                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200"
+                                aria-current="{{ request()->is('projects') ? 'page' : 'false' }}">
+                                Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a
                                 href="{{ route('about') }}"
                                 class="block [&[aria-current='page']]:text-fuchsia-500 text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200"
                                 aria-current="{{ request()->is('about-me') ? 'page' : 'false' }}">
