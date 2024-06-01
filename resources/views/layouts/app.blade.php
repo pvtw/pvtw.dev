@@ -115,7 +115,7 @@
             <main id="content" class="flex-1">
                 {{ $slot }}
             </main>
-            <footer class="bg-gray-950 text-white">
+            <footer class="bg-gray-50 dark:bg-gray-950">
                 <div class="max-w-md mx-auto p-4 text-sm text-center">
                     <p>
                         My website is <x-link href="https://github.com/pvtw/pvtw.dev">open source</x-link>.
