@@ -39,6 +39,7 @@
 
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @stack('head')
     </head>
     <body class="antialiased bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
         <div id="page" class="flex flex-col min-h-screen">
@@ -75,6 +76,14 @@
                 </div>
                 <nav id="primary-navigation" class="w-full sm:w-auto h-[calc(100vh-4rem)] sm:h-auto overflow-y-auto sm:overflow-y-visible sm:mr-2 p-2 sm:p-0" @click.away="closeIfMobile" x-cloak x-show="open">
                     <ul class="flex flex-col sm:flex-row sm:space-x-2 sm:space-y-0 space-y-2">
+                        <li>
+                            <a
+                                href="{{ route('posts.index') }}"
+                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200"
+                                aria-current="{{ request()->is('posts') ? 'page' : 'false' }}">
+                                Posts
+                            </a>
+                        </li>
                         <li>
                             <a
                                 href="{{ route('projects.index') }}"
@@ -118,5 +127,6 @@
         </div>
 
         @livewireScripts
+        @stack('scripts')
     </body>
 </html>
