@@ -1,5 +1,5 @@
 <x-app-layout title="My Projects" description="This is the page where you find my projects.">
-    <div class="max-w-2xl mx-auto p-4">
+    <x-container>
         <div class="border-b border-gray-500">
             <h1 class="text-3xl text-primary dark:text-white font-bold pb-4">My Projects</h1>
         </div>
@@ -28,5 +28,5 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    </x-container>
 </x-app-layout>

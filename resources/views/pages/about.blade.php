@@ -1,9 +1,9 @@
 <x-app-layout title="About Patrick van 't Wout" description="This is the page where you find more information about Patrick van 't Wout" fixed="true">
     <section class="relative min-h-screen flex items-center justify-center">
-        <div>
+        <x-container>
             <h1 class="text-3xl md:text-5xl text-primary text-center font-bold dark:text-white">Patrick van 't Wout</h1>
             <h2 class="text-lg md:text-xl text-gray-600 text-center font-bold mt-2 dark:text-gray-400">Software developer</h2>
-        </div>
+        </x-container>
         <div class="absolute bottom-2 w-full flex justify-center">
             <a href="#my-story" class="block text-gray-600 hover:text-gray-900 dark:text-gray-400 hover:dark:text-gray-100 p-4 transition duration-200">
                 <span class="sr-only">Go to my story</span>
@@ -17,7 +17,7 @@
         <div class="bg-gradient-to-b from-sky-500 to-sky-700 px-4 py-8 md:py-16">
             <h2 class="text-3xl md:text-5xl text-white font-bold text-center">My story</h2>
         </div>
-        <div class="max-w-2xl mx-auto p-4">
+        <x-container>
             <p>
                 As you already know, my name is Patrick van 't Wout. I often abbreviate my name as 'Pvtw' on the web.
                 First I would like to tell you my development story.
@@ -45,13 +45,13 @@
                 Also that little error you get. Struggling to get it working and your colleague fixed it in 5 minutes...
                 Yes, it happends. And I want to be there!
             </p>
-        </div>
+        </x-container>
     </section>
     <section id="skills" class="mt-8">
         <div class="bg-gradient-to-b from-lime-500 to-lime-700 px-4 py-8 md:py-16">
             <h2 class="text-3xl md:text-5xl text-white font-bold text-center">Skills</h2>
         </div>
-        <div class="max-w-2xl grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mx-auto p-4">
+        <x-container class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div>
                 <h3 class="text-xl text-black dark:text-white font-bold">Programming languages</h3>
                 <ul class="grid gap-4 mt-4">
@@ -129,13 +129,13 @@
             <div class="md:col-span-2 mt-4">
                 <p>My skills are not limited to the languages and frameworks mentioned above. I do find those the most important to know.</p>
             </div>
-        </div>
+        </x-container>
     </section>
     <section id="meet-the-bird" class="mt-8">
         <div class="bg-gradient-to-b from-orange-500 to-orange-700 px-4 py-8 md:py-16">
             <h2 class="text-3xl md:text-5xl text-white font-bold text-center">Meet the bird</h2>
         </div>
-        <div class="p-4">
+        <x-container>
             <div class="bg-white max-w-sm flex flex-col items-center justify-center mt-8 mx-auto p-4 rounded-lg shadow-lg dark:bg-gray-800">
                 <img src="/images/cockatiel.png" class="w-64 h-64 rounded-full border-4 border-orange-600 shadow-lg" alt="Cockatiel" loading="lazy">
                 <p class="mt-4 text-center">
@@ -144,6 +144,6 @@
                     If you are lucky, he will say 'hi' back. Or atleast trying to.
                 </p>
             </div>
-        </div>
+        </x-container>
     </section>
 </x-app-layout>
