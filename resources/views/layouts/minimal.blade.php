@@ -1,6 +1,6 @@
 @props([
-    "title" => "Patrick van 't Wout",
-    "description" => "Hi there! My name is Patrick van 't Wout and this is my mystical world of code and hacking.",
+    "title",
+    "description",
     "image" => config('app.url') . "/images/og-image.png",
 ])
 

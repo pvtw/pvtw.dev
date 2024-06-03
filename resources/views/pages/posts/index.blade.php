@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="My Posts" description="This is the page where you find my posts.">
     <x-container>
         <x-heading>My Posts</x-heading>
         <div class="mt-4 space-y-4">
