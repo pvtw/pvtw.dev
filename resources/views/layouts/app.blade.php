@@ -42,7 +42,7 @@
         @stack('head')
     </head>
     <body class="antialiased bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-        <div id="page" class="flex flex-col min-h-screen">
+        <div id="page" class="flex flex-col min-h-dvh">
             @php
                 $header_position = $fixed ? "fixed" : "sticky";
             @endphp
