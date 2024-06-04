@@ -60,9 +60,9 @@
                         }
                     },
                 }">
-                <a href="#content" class="block absolute top-0 left-4 bg-orange-500 text-black underline font-bold px-4 py-2 rounded-b shadow transition-transform duration-200 -translate-y-16 focus-visible:translate-y-0">Skip to content</a>
+                <a href="#content" class="block absolute top-0 left-4 bg-orange-500 text-black underline font-bold px-4 py-2 rounded-b shadow transition-transform duration-200 -translate-y-16 outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:translate-y-0">Skip to content</a>
                 <div class="sm:w-auto w-full h-16 flex items-center justify-between px-2">
-                    <a href="{{ route('home') }}" class="block text-3xl font-bold p-2">Pvtw</a>
+                    <a href="{{ route('home') }}" class="block text-3xl font-bold p-2 outline-none focus-visible:ring focus-visible:ring-blue-500">Pvtw</a>
                     
                     <button class="block sm:hidden p-2" @click.prevent="toggle" :aria-expanded="open" aria-controls="primary-navigation">
                         <span class="sr-only">Toggle menu</span>
@@ -79,7 +79,7 @@
                         <li>
                             <a
                                 href="{{ route('posts.index') }}"
-                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200"
+                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500"
                                 aria-current="{{ request()->is('posts') ? 'page' : 'false' }}">
                                 Posts
                             </a>
@@ -87,7 +87,7 @@
                         <li>
                             <a
                                 href="{{ route('projects.index') }}"
-                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200"
+                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500"
                                 aria-current="{{ request()->is('projects') ? 'page' : 'false' }}">
                                 Projects
                             </a>
@@ -95,7 +95,7 @@
                         <li>
                             <a
                                 href="{{ route('about') }}"
-                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200"
+                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500"
                                 aria-current="{{ request()->is('about-me') ? 'page' : 'false' }}">
                                 About Me
                             </a>
@@ -105,7 +105,7 @@
                                 <form method="post" action="{{ route('auth.logout') }}">
                                     @csrf
 
-                                    <button type="submit" class="block text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200">Logout</button>
+                                    <button type="submit" class="block text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500">Logout</button>
                                 </form>
                             </li>
                         @endauth
