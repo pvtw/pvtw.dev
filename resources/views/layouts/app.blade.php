@@ -108,7 +108,7 @@
                                 <form method="post" action="{{ route('auth.logout') }}">
                                     @csrf
 
-                                    <button type="submit" class="block text-xl font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500">Logout</button>
+                                    <button type="submit" class="block w-full md:w-auto text-xl text-left font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500">Logout</button>
                                 </form>
                             </li>
                         @endauth
