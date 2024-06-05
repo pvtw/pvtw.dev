@@ -1,6 +1,6 @@
 <x-minimal-layout title="Login" description="This is the page where you can login to my website.">
     <div class="bg-primary w-full min-h-dvh flex flex-col md:justify-center items-center p-4">
-        <a href="{{ route('home') }}" class="block w-32 h-32 outline-none focus-visible:ring focus-visible:ring-blue-500">
+        <a href="{{ route('home') }}" class="block w-32 h-32 outline-none focus-visible:ring focus-visible:ring-blue-500" wire:navigate>
             <img src="/images/logo-128x128.png" alt="Logo">
         </a>
         <div class="w-full max-w-lg bg-gray-100 dark:bg-gray-900 mt-1 p-4 rounded-xl shadow">
