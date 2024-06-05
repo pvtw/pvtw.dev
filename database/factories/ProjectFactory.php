@@ -24,6 +24,7 @@ final class ProjectFactory extends Factory
             'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
             'repository_url' => fake()->url(),
+            'repository_label' => fake()->word(),
             'started_at' => $startTimestamp,
             'finished_at' => $startTimestamp + fake()->randomNumber(),
         ];

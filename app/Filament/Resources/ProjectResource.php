@@ -34,6 +34,9 @@ final class ProjectResource extends Resource
                     ->required()
                     ->url()
                     ->maxLength(255),
+                TextInput::make('repository_label')
+                    ->required()
+                    ->maxLength(255),
                 DatePicker::make('started_at')
                     ->required(),
                 DatePicker::make('finished_at')

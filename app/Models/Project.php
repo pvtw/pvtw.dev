@@ -15,6 +15,7 @@ final class Project extends Model
         'title',
         'description',
         'repository_url',
+        'repository_label',
         'started_at',
         'finished_at',
     ];
