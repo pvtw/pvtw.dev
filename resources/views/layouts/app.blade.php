@@ -64,7 +64,7 @@
                 <div class="sm:w-auto w-full h-16 flex items-center justify-between px-2">
                     <a href="{{ route('home') }}" class="block text-3xl font-bold p-2 outline-none focus-visible:ring focus-visible:ring-blue-500" wire:navigate>Pvtw</a>
                     
-                    <button class="block sm:hidden p-2" @click.prevent="toggle" :aria-expanded="open" aria-controls="primary-navigation">
+                    <button class="block sm:hidden p-2 outline-none focus-visible:ring focus-visible:ring-blue-500" @click.prevent="toggle" :aria-expanded="open" aria-controls="primary-navigation">
                         <span class="sr-only">Toggle menu</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8" aria-hidden="true" x-cloak x-show="! open">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
