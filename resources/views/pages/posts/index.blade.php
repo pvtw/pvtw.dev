@@ -7,7 +7,7 @@
                     <x-link href="{{ route('posts.show', $post) }}" class="block" wire:navigate>
                         <h2>{{ $post->title }}</h2>
                     </x-link>
-                    <span class="text-sm italic mt-4">{{ $post->published_at->format('F jS Y') }}</span>
+                    <time datetime="{{ $post->published_at->format('Y-m-d') }}" class="text-sm italic mt-4">{{ $post->published_at->format('F jS Y') }}</time>
                 </x-card>
             @endforeach
         </div>
