@@ -33,7 +33,10 @@ final class PostResource extends Resource
                     ->maxLength(255)
                     ->unique(ignoreRecord: true),
                 MarkdownEditor::make('content')
-                    ->required(),
+                    ->required()
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('uploads')
+                    ->fileAttachmentsVisibility('public'),
                 TextInput::make('meta_title')
                     ->required()
                     ->maxLength(255),
