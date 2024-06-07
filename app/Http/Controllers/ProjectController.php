@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
 final class ProjectController extends Controller
 {
@@ -14,8 +15,12 @@ final class ProjectController extends Controller
      */
     public function index(): View
     {
+        $projects = Cache::rememberForever('projects.index', function () {
+            return Project::latest('started_at')->get();
+        });
+        
         return view('pages.projects', [
-            'projects' => Project::latest('started_at')->get(),
+            'projects' => $projects,
         ]);
     }
 }

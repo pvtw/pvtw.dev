@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
 final class PostController extends Controller
 {
@@ -14,10 +15,12 @@ final class PostController extends Controller
      */
     public function index(): View
     {
-        $posts = Post::query()
-            ->whereNotNull('published_at')
-            ->latest('published_at')
-            ->get();
+        $posts = Cache::rememberForever('posts.index', function () {
+            return Post::query()
+                ->whereNotNull('published_at')
+                ->latest('published_at')
+                ->get();
+        });
 
         return view('pages.posts.index', [
             'posts' => $posts,
