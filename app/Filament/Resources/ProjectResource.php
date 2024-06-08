@@ -7,7 +7,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Models\Project;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -28,8 +28,11 @@ final class ProjectResource extends Resource
                 TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Textarea::make('description')
-                    ->required(),
+                MarkdownEditor::make('description')
+                    ->required()
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('uploads')
+                    ->fileAttachmentsVisibility('public'),
                 TextInput::make('repository_url')
                     ->required()
                     ->url()
