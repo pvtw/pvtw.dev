@@ -58,6 +58,7 @@ final class PostResource extends Resource
                     ->sortable()
                     ->limit(100),
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
 
             ])
