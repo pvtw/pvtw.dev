@@ -4,6 +4,12 @@
 
 @pushOnce('head')
 <link rel="stylesheet" href="/css/prism.css">
+<style>
+code.language-bash::before {
+    content: "$";
+    padding-inline-end: .5rem;
+}
+</style>
 @endPushOnce
 
 @pushOnce('scripts')
