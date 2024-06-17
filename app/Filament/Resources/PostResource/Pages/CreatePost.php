@@ -14,6 +14,6 @@ final class CreatePost extends CreateRecord
 
     protected function afterCreate(): void
     {
-        Cache::forget('posts.index');
+        Cache::tags(['posts'])->flush();
     }
 }

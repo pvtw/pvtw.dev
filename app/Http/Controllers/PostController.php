@@ -15,7 +15,7 @@ final class PostController extends Controller
      */
     public function index(): View
     {
-        $posts = Cache::rememberForever('posts.index', function () {
+        $posts = Cache::tags(['posts'])->rememberForever('posts.index', function () {
             return Post::query()
                 ->whereNotNull('published_at')
                 ->latest('published_at')

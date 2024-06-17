@@ -22,6 +22,6 @@ final class EditProject extends EditRecord
 
     protected function afterSave(): void
     {
-        Cache::forget('projects.index');
+        Cache::tags(['projects'])->flush();
     }
 }

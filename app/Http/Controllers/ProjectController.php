@@ -15,10 +15,8 @@ final class ProjectController extends Controller
      */
     public function index(): View
     {
-        $projects = Cache::rememberForever('projects.index', function () {
-            return Project::latest('started_at')->get();
-        });
-        
+        $projects = Cache::tags(['projects'])->rememberForever('projects.index', fn () => Project::latest('started_at')->get());
+
         return view('pages.projects', [
             'projects' => $projects,
         ]);

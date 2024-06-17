@@ -22,6 +22,6 @@ final class EditPost extends EditRecord
 
     protected function afterSave(): void
     {
-        Cache::forget('posts.index');
+        Cache::tags(['posts'])->flush();
     }
 }

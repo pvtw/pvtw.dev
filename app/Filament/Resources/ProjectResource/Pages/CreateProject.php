@@ -14,6 +14,6 @@ final class CreateProject extends CreateRecord
 
     protected function afterCreate(): void
     {
-        Cache::forget('projects.index');
+        Cache::tags(['projects'])->flush();
     }
 }
