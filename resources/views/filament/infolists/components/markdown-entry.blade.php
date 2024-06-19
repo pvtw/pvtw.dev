@@ -1,5 +1,5 @@
 <x-dynamic-component :component="$getEntryWrapperView()" :entry="$entry">
     <x-markdown>
-        {{ $getState() }}
+        {!! $getState() !!}
     </x-markdown>
 </x-dynamic-component>
