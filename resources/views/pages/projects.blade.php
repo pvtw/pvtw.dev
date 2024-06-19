@@ -3,8 +3,8 @@
         <x-heading>My Projects</x-heading>
         <div class="mt-4 space-y-8">
             @foreach($projects as $project)
-                <div class="relative bg-white dark:bg-gray-800 rounded-xl shadow-xl">
-                    <header class="flex flex-col p-4 border-b border-gray-500">
+                <x-card>
+                    <header class="flex flex-col pb-4 border-b border-gray-500">
                         <h2 class="text-xl lg:text-3xl text-black dark:text-white font-bold">{{ $project->title }}</h2>
                         <span class="flex items-center space-x-2 italic mt-2 lg:mt-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -28,10 +28,10 @@
                             <x-link href="{{ $project->repository_url }}">{{ $project->repository_label }}</x-link>
                         </span>
                     </header>
-                    <div class="px-4 py-2">
+                    <div class="py-2">
                         <x-markdown>{!! $project->description !!}</x-markdown>
                     </div>
-                </div>
+                </x-card>
             @endforeach
         </div>
     </x-container>
