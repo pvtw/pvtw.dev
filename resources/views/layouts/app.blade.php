@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <nav id="primary-navigation" class="w-full sm:w-auto h-[calc(100vh-4rem)] sm:h-auto overflow-y-auto sm:overflow-y-visible sm:mr-2 p-2 sm:p-0" x-cloak x-show="open">
-                    <ul class="flex flex-col sm:flex-row sm:space-x-2 sm:space-y-0 space-y-2">
+                    <ul class="flex flex-col sm:flex-row gap-2">
                         <li>
                             <a
                                 href="{{ route('posts.index') }}"
