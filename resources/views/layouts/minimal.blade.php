@@ -39,7 +39,17 @@
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="antialiased bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <body class="antialiased bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+        :class="{ dark: theme == 'system' ? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches : theme == 'dark' }"
+        x-data="{
+            theme: undefined,
+            init() {
+                this.theme = window.localStorage.getItem('theme') || 'system'
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+                    this.theme = event.matches ? 'dark' : 'light';
+                });
+            }
+        }">
         <div id="page">
             {{ $slot }}
         </div>
