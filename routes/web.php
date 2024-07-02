@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LoginWithGitHubController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -31,4 +32,10 @@ Route::middleware(['guest'])->group(function (): void {
 
 Route::middleware(['auth'])->group(function (): void {
     Route::post('/auth/logout', LogoutController::class)->name('auth.logout');
+
+    // Route::controller(EmailVerificationController::class)->prefix('email')->name('verification.')->group(function (): void {
+    //     Route::get('/verify/{id}/{hash}', 'index')->middleware(['signed', 'throttle:6,1'])->name('verify');
+    //     Route::get('/verify', 'create')->name('notice');
+    //     Route::post('/verify', 'store')->middleware(['throttle:6,1'])->name('send');
+    // });
 });
