@@ -3,11 +3,14 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Auth\ConfirmPasswordController;
 use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LoginWithGitHubController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
@@ -28,6 +31,10 @@ Route::middleware(['guest'])->group(function (): void {
     // Route::post('/auth/register', [RegisterController::class, 'store'])->name('auth.register.store');
     // Route::get('/auth/github/redirect', [LoginWithGitHubController::class, 'create'])->name('auth.github.create');
     // Route::get('/auth/github/callback', [LoginWithGitHubController::class, 'store'])->name('auth.github.store');
+    // Route::get('/forgot-password', [ForgotPasswordController::class, 'create'])->name('password.request');
+    // Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('password.email');
+    // Route::get('/reset-password/{token}', [ResetPasswordController::class, 'create'])->name('password.reset');
+    // Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('password.update');
 });
 
 Route::middleware(['auth'])->group(function (): void {
