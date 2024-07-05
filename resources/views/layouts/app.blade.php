@@ -159,6 +159,9 @@
                         My website is <x-link href="https://github.com/pvtw/pvtw.dev">open source</x-link>.
                         Feel free to contribute if you find a bug or have suggestions to improve my website.
                     </p>
+                    <p class="mt-2">
+                        <x-link href="{{ route('privacy-policy') }}">Privacy Policy</x-link>
+                    </p>
                     <p class="mt-2">Copyright &copy; {{ now()->year }} - Patrick van 't Wout</p>
                 </div>
             </footer>
