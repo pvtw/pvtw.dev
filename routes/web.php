@@ -43,4 +43,6 @@ Route::middleware(['auth'])->group(function (): void {
     // Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'index'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
     // Route::get('/email/verify', [EmailVerificationController::class, 'create'])->name('verification.notice');
     // Route::post('/email/verify', [EmailVerificationController::class, 'store'])->middleware(['throttle:6,1'])->name('verification.send');
+    // Route::get('/confirm-password', [ConfirmPasswordController::class, 'create'])->name('password.confirm');
+    // Route::post('/confirm-password', [ConfirmPasswordController::class, 'store']);
 });
