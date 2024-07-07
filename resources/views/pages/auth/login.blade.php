@@ -7,6 +7,13 @@
             <div class="border-b border-gray-500">
                 <h1 class="text-3xl font-bold pb-4">Login</h1>
             </div>
+
+            @if (session('status'))
+                <div class="mt-4 font-medium text-sm text-green-600 dark:text-green-400">
+                    {{ session('status') }}
+                </div>
+            @endif
+            
             <div class="mt-4">
                 <form method="post" action="{{ route('auth.login.store') }}">
                     @csrf
