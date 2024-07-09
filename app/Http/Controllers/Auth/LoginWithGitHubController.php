@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
 
 final class LoginWithGitHubController extends Controller
@@ -21,16 +22,44 @@ final class LoginWithGitHubController extends Controller
     {
         $githubUser = Socialite::driver('github')->user();
 
-        $user = User::firstOrCreate([
-            'github_id' => $githubUser->getId(),
-        ], [
-            'name' => $githubUser->getName(),
-            'username' => $githubUser->getNickname(),
-            'email' => $githubUser->getEmail(),
-        ]);
+        $user = $this->getUserFromGithubUser($githubUser);
 
         Auth::login($user);
 
         return redirect()->route('home');
+    }
+
+    private function getUserFromGithubUser(SocialiteUser $githubUser): User
+    {
+        /** @var User|null $user */
+        $user = User::where('github_id', $githubUser->getId())->first();
+
+        if (null !== $user) {
+            return $user;
+        }
+
+        /** @var User|null $user */
+        $user = User::where('email', $githubUser->getEmail())->first();
+
+        if (null !== $user) {
+            $user->update(['github_id', $githubUser->getId()]);
+
+            return $user;
+        }
+
+        $attributes = [
+            'name' => $githubUser->getName(),
+            'email' => $githubUser->getEmail(),
+            'github_id' => $githubUser->getId(),
+        ];
+
+        if (0 === User::where('username', $githubUser->getNickname())->count()) {
+            $attributes = [
+                'username' => $githubUser->getNickname(),
+                ...$attributes,
+            ];
+        }
+
+        return User::create($attributes);
     }
 }
