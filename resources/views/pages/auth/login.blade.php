@@ -15,7 +15,7 @@
             @endif
             
             <div class="mt-4">
-                <form method="post" action="{{ route('auth.login.store') }}">
+                <form method="post" action="{{ route('login') }}">
                     @csrf
                     
                     <div class="flex flex-col space-y-1">
@@ -25,9 +25,10 @@
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="flex flex-col space-y-1 mt-4">
+                    <div class="relative flex flex-col space-y-1 mt-4">
                         <label for="form-password" class="font-bold">Password</label>
                         <input type="password" name="password" id="form-password" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" required autocomplete="current-password">
+                        <x-link href="{{ route('password.request') }}" class="absolute -top-1 right-0">Forgot Password?</x-link>
                         @error('password')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror

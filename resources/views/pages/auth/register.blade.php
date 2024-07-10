@@ -8,7 +8,7 @@
                 <h1 class="text-3xl font-bold pb-4">Register</h1>
             </div>
             <div class="mt-4">
-                <form method="post" action="{{ route('auth.register.store') }}">
+                <form method="post" action="{{ route('register') }}">
                     @csrf
                     
                     <div class="flex flex-col space-y-1">

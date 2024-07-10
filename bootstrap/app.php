@@ -18,10 +18,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin' => EnsureUserIsAdmin::class,
         ]);
-
-        // If the user is not authenticated when visiting a protected location
-        // Redirect to the 'auth.login.create' route (The default is 'login')
-        $middleware->redirectGuestsTo(fn (Request $request) => route('auth.login.create'));
     })
     ->withExceptions(function (Exceptions $exceptions): void {
 
