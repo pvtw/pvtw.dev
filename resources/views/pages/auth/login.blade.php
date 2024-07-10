@@ -25,6 +25,7 @@
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
+
                     <div class="relative flex flex-col space-y-1 mt-4">
                         <label for="form-password" class="font-bold">Password</label>
                         <input type="password" name="password" id="form-password" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" required autocomplete="current-password">
@@ -33,6 +34,12 @@
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
+
+                    <div class="flex items-center gap-1 mt-4">
+                        <input type="checkbox" name="remember" id="form-remember">
+                        <label for="form-remember">Remember Me</label>
+                    </div>
+
                     <div class="flex justify-end items-center mt-8">
                         <button type="submit" class="bg-primary dark:bg-gray-100 text-gray-100 dark:text-gray-900 outline-none focus-visible:ring focus-visible:ring-blue-500 font-bold px-4 py-2 rounded shadow">Submit</button>
                     </div>

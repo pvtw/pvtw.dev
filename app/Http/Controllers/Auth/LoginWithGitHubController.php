@@ -24,7 +24,7 @@ final class LoginWithGitHubController extends Controller
 
         $user = $this->getUserFromGithubUser($githubUser);
 
-        Auth::login($user);
+        Auth::login($user, true);
 
         return redirect()->route('home');
     }
