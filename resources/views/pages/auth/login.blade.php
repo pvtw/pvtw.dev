@@ -13,6 +13,14 @@
                     {{ session('status') }}
                 </div>
             @endif
+
+            <div class="mt-4">
+                <a href="{{ route('auth.github.redirect') }}" class="block w-full bg-white dark:bg-gray-800 text-center font-bold outline-none focus-visible:ring focus-visible:ring-blue-500 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded shadow">Login with GitHub</a>
+            </div>
+
+            <div class="mt-4 flex justify-center">
+                <span class="text-lg text-gray-400 dark:text-gray-600 font-bold">OR</span>
+            </div>
             
             <div class="mt-4">
                 <form method="post" action="{{ route('login') }}">
