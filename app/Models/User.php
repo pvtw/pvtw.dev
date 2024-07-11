@@ -24,6 +24,7 @@ final class User extends Authenticatable implements FilamentUser, MustVerifyEmai
         'email',
         'password',
         'github_id',
+        'avatar_url',
     ];
 
     protected $hidden = [

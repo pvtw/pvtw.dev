@@ -51,6 +51,7 @@ final class LoginWithGitHubController extends Controller
             'name' => $githubUser->getName(),
             'email' => $githubUser->getEmail(),
             'github_id' => $githubUser->getId(),
+            'avatar_url' => $githubUser->getAvatar(),
         ];
 
         if (0 === User::where('username', $githubUser->getNickname())->count()) {
