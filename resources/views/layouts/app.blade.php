@@ -140,7 +140,7 @@
                         </li>
                         @auth
                             <li>
-                                <details class="md:relative">
+                                <details id="myAccountMenu" class="md:relative" @click.away="document.getElementById('myAccountMenu').removeAttribute('open')">
                                     <summary class="cursor-pointer block w-full md:w-12 h-12 flex justify-between md:justify-center items-center outline-none focus-visible:ring focus-visible:ring-blue-500">
                                         <span class="md:sr-only block text-xl text-nowrap font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200">My Account</span>
                                         @if(null !== auth()->user()->avatar_url)
