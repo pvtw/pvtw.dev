@@ -18,15 +18,15 @@ final class ProjectFactory extends Factory
      */
     public function definition(): array
     {
-        $startTimestamp = fake()->dateTime()->getTimestamp();
+        $start = fake()->dateTimeBetween();
 
         return [
             'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
             'repository_url' => fake()->url(),
             'repository_label' => fake()->word(),
-            'started_at' => $startTimestamp,
-            'finished_at' => $startTimestamp + fake()->randomNumber(),
+            'started_at' => $start->getTimestamp(),
+            'finished_at' => fake()->dateTimeBetween($start)->getTimestamp(),
         ];
     }
 }
