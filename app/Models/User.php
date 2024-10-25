@@ -21,6 +21,7 @@ final class User extends Authenticatable implements FilamentUser, MustVerifyEmai
 
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
         'github_id',
