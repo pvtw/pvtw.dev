@@ -20,8 +20,16 @@
                     </div>
 
                     <div class="flex flex-col space-y-1 mt-4">
+                        <label for="form-username" class="font-bold">Username</label>
+                        <input type="text" name="username" value="{{ old('username') }}" id="form-username" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" autocomplete="username">
+                        @error('username')
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-col space-y-1 mt-4">
                         <label for="form-email" class="font-bold">Email</label>
-                        <input type="text" name="email" value="{{ old('email') }}" id="form-email" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" required autocomplete="username">
+                        <input type="text" name="email" value="{{ old('email') }}" id="form-email" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" required autocomplete="email">
                         @error('email')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
