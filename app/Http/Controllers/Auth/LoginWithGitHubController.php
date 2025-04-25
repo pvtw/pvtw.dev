@@ -48,7 +48,7 @@ final class LoginWithGitHubController extends Controller
         }
 
         $attributes = [
-            'name' => $githubUser->getName(),
+            'name' => $githubUser->getName() ?? $githubUser->getNickname(),
             'email' => $githubUser->getEmail(),
             'github_id' => $githubUser->getId(),
             'avatar_url' => $githubUser->getAvatar(),
