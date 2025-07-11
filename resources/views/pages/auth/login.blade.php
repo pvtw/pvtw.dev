@@ -27,7 +27,7 @@
         <x-input-group class="relative mt-4">
             <x-label for="form-password">Password</x-label>
             <x-text-input type="password" name="password" id="form-password" required autocomplete="current-password" />
-            <x-link href="{{ route('password.request') }}" class="absolute -top-1 right-0">Forgot Password?</x-link>
+            <x-link href="{{ route('password.request') }}" class="absolute right-0">Forgot Password?</x-link>
             @error('password')
                 <x-error>{{ $message }}</x-error>
             @enderror
