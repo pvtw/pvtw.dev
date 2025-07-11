@@ -1,61 +1,47 @@
-<x-minimal-layout title="Register" description="This is the page where you can register to my website.">
-    <div class="bg-primary w-full min-h-dvh flex flex-col md:justify-center items-center p-4">
-        <a href="{{ route('home') }}" class="block w-32 h-32 outline-none focus-visible:ring focus-visible:ring-blue-500" wire:navigate>
-            <img src="/images/logo-128x128.png" alt="Logo">
-        </a>
-        <div class="w-full max-w-lg bg-gray-100 dark:bg-gray-900 mt-1 p-4 rounded-xl shadow">
-            <div class="border-b border-gray-500">
-                <h1 class="text-3xl font-bold pb-4">Register</h1>
-            </div>
-            <div class="mt-4">
-                <form method="post" action="{{ route('register') }}">
-                    @csrf
-                    
-                    <div class="flex flex-col space-y-1">
-                        <label for="form-name" class="font-bold">Name</label>
-                        <input type="text" name="name" value="{{ old('name') }}" id="form-name" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" required autofocus autocomplete="name">
-                        @error('name')
-                            <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                    </div>
+<x-auth-layout title="Register" description="This is the page where you can register to my website.">
+    <form method="post" action="{{ route('register') }}">
+        @csrf
+        
+        <x-input-group>
+            <x-label for="form-name">Name</x-label>
+            <x-text-input type="text" name="name" value="{{ old('name') }}" id="form-name" required autofocus autocomplete="name" />
+            @error('name')
+                <x-error>{{ $message }}</x-error>
+            @enderror
+        </x-input-group>
 
-                    <div class="flex flex-col space-y-1 mt-4">
-                        <label for="form-username" class="font-bold">Username</label>
-                        <input type="text" name="username" value="{{ old('username') }}" id="form-username" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" autocomplete="username">
-                        @error('username')
-                            <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                    </div>
+        <x-input-group class="mt-4">
+            <x-label for="form-username">Username</x-label>
+            <x-text-input type="text" name="username" value="{{ old('username') }}" id="form-username" autocomplete="username" />
+            @error('username')
+                <x-error>{{ $message }}</x-error>
+            @enderror
+        </x-input-group>
 
-                    <div class="flex flex-col space-y-1 mt-4">
-                        <label for="form-email" class="font-bold">Email</label>
-                        <input type="text" name="email" value="{{ old('email') }}" id="form-email" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" required autocomplete="email">
-                        @error('email')
-                            <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                    </div>
+        <x-input-group class="mt-4">
+            <x-label for="form-email">Email</x-label>
+            <x-text-input type="text" name="email" value="{{ old('email') }}" id="form-email" required autocomplete="email" />
+            @error('email')
+                <x-error>{{ $message }}</x-error>
+            @enderror
+        </x-input-group>
 
-                    <div class="flex flex-col space-y-1 mt-4">
-                        <label for="form-password" class="font-bold">Password</label>
-                        <input type="password" name="password" id="form-password" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" required autocomplete="new-password">
-                        @error('password')
-                            <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                    </div>
+        <x-input-group class="mt-4">
+            <x-label for="form-password">Password</x-label>
+            <x-text-input type="password" name="password" id="form-password" required autocomplete="new-password" />
+            @error('password')
+                <x-error>{{ $message }}</x-error>
+            @enderror
+        </x-input-group>
 
-                    <div class="flex flex-col space-y-1 mt-4">
-                        <label for="form-password-confirmation" class="font-bold">Confirm Password</label>
-                        <input type="password" name="password_confirmation" id="form-password-confirmation" class="bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow" required autocomplete="new-password">
-                        @error('password_confirmation')
-                            <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                    </div>
+        <x-input-group class="mt-4">
+            <x-label for="form-password-confirmation">Confirm Password</x-label>
+            <x-text-input type="password" name="password_confirmation" id="form-password-confirmation" required autocomplete="new-password" />
+            @error('password_confirmation')
+                <x-error>{{ $message }}</x-error>
+            @enderror
+        </x-input-group>
 
-                    <div class="flex justify-end items-center mt-8">
-                        <button type="submit" class="bg-primary dark:bg-gray-100 text-gray-100 dark:text-gray-900 outline-none focus-visible:ring focus-visible:ring-blue-500 font-bold px-4 py-2 rounded shadow">Create</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</x-minimal-layout>
+        <x-submit-button>Create</x-submit-button>
+    </form>
+</x-auth-layout>
