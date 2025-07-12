@@ -1,6 +1,6 @@
 <x-app-layout title="Privacy Policy" description="This is my privacy policy. Learn how and why I use cookies and how I use your data.">
     <x-container>
-        <div class="max-w-none prose prose-neutral dark:prose-invert lg:prose-lg prose-a:text-blue-500 prose-a:font-normal prose-a:no-underline hover:prose-a:underline prose-a:outline-none prose-a:focus-visible:ring-3 prose-a:focus-visible:ring-blue-500 prose-pre:outline-none prose-pre:focus-visible:ring-3 prose-pre:focus-visible:ring-blue-500">
+        <div class="max-w-none prose prose-neutral dark:prose-invert lg:prose-lg prose-a:text-blue-500 prose-a:font-normal prose-a:no-underline prose-a:hover:underline prose-a:outline-none prose-a:focus-visible:ring-3 prose-a:focus-visible:ring-blue-500 prose-pre:outline-none prose-pre:focus-visible:ring-3 prose-pre:focus-visible:ring-blue-500">
             <h1>Privacy Policy</h1>
             <p>Last updated: July 04, 2024</p>
             <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>

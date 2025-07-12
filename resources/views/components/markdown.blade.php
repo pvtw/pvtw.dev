@@ -1,4 +1,4 @@
-<div {{ $attributes->merge(['class' => 'max-w-none prose prose-neutral dark:prose-invert lg:prose-lg prose-a:text-blue-500 prose-a:font-normal prose-a:no-underline hover:prose-a:underline prose-a:outline-none prose-a:focus-visible:ring-3 prose-a:focus-visible:ring-blue-500 prose-pre:outline-none prose-pre:focus-visible:ring-3 prose-pre:focus-visible:ring-blue-500']) }}>
+<div {{ $attributes->merge(['class' => 'max-w-none prose prose-neutral dark:prose-invert lg:prose-lg prose-a:text-blue-500 prose-a:font-normal prose-a:no-underline prose-a:hover:underline prose-a:outline-none prose-a:focus-visible:ring-3 prose-a:focus-visible:ring-blue-500 prose-pre:outline-none prose-pre:focus-visible:ring-3 prose-pre:focus-visible:ring-blue-500']) }}>
     {!! str($slot)->markdown(['html_input' => 'escape']) !!}
 </div>
 
