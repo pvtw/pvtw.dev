@@ -6,7 +6,7 @@
     @endif
 
     <div class="mt-4">
-        <a href="{{ route('auth.github.redirect') }}" class="block w-full bg-white dark:bg-gray-800 text-center font-bold outline-none focus-visible:ring focus-visible:ring-blue-500 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded shadow">Login with GitHub</a>
+        <a href="{{ route('auth.github.redirect') }}" class="block w-full bg-white dark:bg-gray-800 text-center font-bold outline-none focus-visible:ring-3 focus-visible:ring-blue-500 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-sm shadow-sm">Login with GitHub</a>
     </div>
 
     <div class="mt-4 flex justify-center">

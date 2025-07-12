@@ -66,7 +66,7 @@
             @php
                 $header_position = $fixed ? "fixed" : "sticky";
             @endphp
-            <header class="bg-primary text-white flex flex-col sm:flex-row items-start sm:items-center justify-between {{ $header_position }} top-0 w-full shadow z-[9001]"
+            <header class="bg-primary text-white flex flex-col sm:flex-row items-start sm:items-center justify-between {{ $header_position }} top-0 w-full shadow-sm z-9001"
                 @keydown.window.escape="closeIfMobile"
                 x-trap.inert.noscroll="window.innerWidth < 640 && open"
                 x-data="{
@@ -80,12 +80,12 @@
                         }
                     },
                 }">
-                <a href="#content" class="block absolute top-0 left-4 bg-orange-500 text-black underline font-bold px-4 py-2 rounded-b shadow transition-transform duration-200 -translate-y-16 outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:translate-y-0">Skip to content</a>
+                <a href="#content" class="block absolute top-0 left-4 bg-orange-500 text-black underline font-bold px-4 py-2 rounded-b shadow-sm transition-transform duration-200 -translate-y-16 outline-none focus-visible:ring-3 focus-visible:ring-blue-500 focus-visible:translate-y-0">Skip to content</a>
                 <div class="w-full h-16 flex items-center justify-between px-2">
-                    <a href="{{ route('home') }}" class="block text-3xl font-bold p-2 outline-none focus-visible:ring focus-visible:ring-blue-500" wire:navigate>Pvtw</a>
+                    <a href="{{ route('home') }}" class="block text-3xl font-bold p-2 outline-none focus-visible:ring-3 focus-visible:ring-blue-500" wire:navigate>Pvtw</a>
                     
                     <div class="flex justify-center items-center gap-2">
-                        <button class="p-2 outline-none focus-visible:ring focus-visible:ring-blue-500" @click.prevent="toggleTheme">
+                        <button class="cursor-pointer p-2 outline-none focus-visible:ring-3 focus-visible:ring-blue-500" @click.prevent="toggleTheme">
                             <span class="sr-only">Toggle theme</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true" x-cloak x-show="theme == 'light'">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
@@ -98,7 +98,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                             </svg>
                         </button>
-                        <button class="block sm:hidden p-2 outline-none focus-visible:ring focus-visible:ring-blue-500" @click.prevent="toggle" :aria-expanded="open" aria-controls="primary-navigation">
+                        <button class="cursor-pointer block sm:hidden p-2 outline-none focus-visible:ring-3 focus-visible:ring-blue-500" @click.prevent="toggle" :aria-expanded="open" aria-controls="primary-navigation">
                             <span class="sr-only">Toggle menu</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8" aria-hidden="true" x-cloak x-show="! open">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -119,7 +119,7 @@
                         <li>
                             <a
                                 href="{{ route('posts.index') }}"
-                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl text-nowrap font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500"
+                                class="block aria-[current='page']:text-fuchsia-500 text-xl text-nowrap font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring-3 focus-visible:ring-blue-500"
                                 aria-current="{{ request()->is('posts') ? 'page' : 'false' }}"
                                 wire:navigate>
                                 Posts
@@ -128,7 +128,7 @@
                         <li>
                             <a
                                 href="{{ route('projects.index') }}"
-                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl text-nowrap font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500"
+                                class="block aria-[current='page']:text-fuchsia-500 text-xl text-nowrap font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring-3 focus-visible:ring-blue-500"
                                 aria-current="{{ request()->is('projects') ? 'page' : 'false' }}"
                                 wire:navigate>
                                 Projects
@@ -137,7 +137,7 @@
                         <li>
                             <a
                                 href="{{ route('about') }}"
-                                class="block [&[aria-current='page']]:text-fuchsia-500 text-xl text-nowrap font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500"
+                                class="block aria-[current='page']:text-fuchsia-500 text-xl text-nowrap font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring-3 focus-visible:ring-blue-500"
                                 aria-current="{{ request()->is('about-me') ? 'page' : 'false' }}"
                                 wire:navigate>
                                 About Me

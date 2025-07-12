@@ -1,1 +1,1 @@
-<input {{ $attributes->merge(['class' => 'bg-white dark:bg-gray-800 outline-none focus-visible:ring focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded shadow']) }}>
+<input {{ $attributes->merge(['class' => 'bg-white dark:bg-gray-800 outline-none focus-visible:ring-3 focus-visible:ring-blue-500 px-2 py-1 border border-gray-300 dark:border-gray-700 rounded-sm shadow-sm']) }}>

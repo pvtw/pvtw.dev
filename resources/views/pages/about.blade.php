@@ -5,7 +5,7 @@
             <h2 class="text-lg md:text-xl text-gray-600 text-center font-bold mt-2 dark:text-gray-400">Software developer</h2>
         </x-container>
         <div class="absolute bottom-2 w-full flex justify-center">
-            <a href="#my-story" class="block text-gray-600 hover:text-gray-900 dark:text-gray-400 hover:dark:text-gray-100 p-4 transition duration-200 outline-none focus-visible:ring focus-visible:ring-blue-500">
+            <a href="#my-story" class="block text-gray-600 hover:text-gray-900 dark:text-gray-400 hover:dark:text-gray-100 p-4 transition duration-200 outline-none focus-visible:ring-3 focus-visible:ring-blue-500">
                 <span class="sr-only">Go to my story</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 motion-safe:animate-bounce" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
@@ -14,7 +14,7 @@
         </div>
     </section>
     <section id="my-story">
-        <div class="bg-gradient-to-b from-sky-500 to-sky-700 px-4 py-8 md:py-16">
+        <div class="bg-linear-to-b from-sky-500 to-sky-700 px-4 py-8 md:py-16">
             <h2 class="text-3xl md:text-5xl text-white font-bold text-center">My story</h2>
         </div>
         <x-container>
@@ -48,7 +48,7 @@
         </x-container>
     </section>
     <section id="skills" class="mt-8">
-        <div class="bg-gradient-to-b from-lime-500 to-lime-700 px-4 py-8 md:py-16">
+        <div class="bg-linear-to-b from-lime-500 to-lime-700 px-4 py-8 md:py-16">
             <h2 class="text-3xl md:text-5xl text-white font-bold text-center">Skills</h2>
         </div>
         <x-container class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -58,7 +58,7 @@
                     <li>
                         <span class="text-lg">PHP</span>
                         <div class="border border-gray-600 dark:border-gray-400">
-                            <div class="w-[98%] h-4 bg-gradient-to-b from-lime-500 to-lime-700">
+                            <div class="w-[98%] h-4 bg-linear-to-b from-lime-500 to-lime-700">
                                 <span class="sr-only">98%</span>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                     <li>
                         <span class="text-lg">C#</span>
                         <div class="border border-gray-600 dark:border-gray-400">
-                            <div class="w-[95%] h-4 bg-gradient-to-b from-lime-500 to-lime-700">
+                            <div class="w-[95%] h-4 bg-linear-to-b from-lime-500 to-lime-700">
                                 <span class="sr-only">95%</span>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                     <li>
                         <span class="text-lg">TypeScript</span>
                         <div class="border border-gray-600 dark:border-gray-400">
-                            <div class="w-[90%] h-4 bg-gradient-to-b from-lime-500 to-lime-700">
+                            <div class="w-[90%] h-4 bg-linear-to-b from-lime-500 to-lime-700">
                                 <span class="sr-only">90%</span>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                     <li>
                         <span class="text-lg">SQL</span>
                         <div class="border border-gray-600 dark:border-gray-400">
-                            <div class="w-[90%] h-4 bg-gradient-to-b from-lime-500 to-lime-700">
+                            <div class="w-[90%] h-4 bg-linear-to-b from-lime-500 to-lime-700">
                                 <span class="sr-only">90%</span>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                     <li>
                         <span class="text-lg">Laravel</span>
                         <div class="border border-gray-600 dark:border-gray-400">
-                            <div class="w-[95%] h-4 bg-gradient-to-b from-lime-500 to-lime-700">
+                            <div class="w-[95%] h-4 bg-linear-to-b from-lime-500 to-lime-700">
                                 <span class="sr-only">95%</span>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                     <li>
                         <span class="text-lg">.NET</span>
                         <div class="border border-gray-600 dark:border-gray-400">
-                            <div class="w-[95%] h-4 bg-gradient-to-b from-lime-500 to-lime-700">
+                            <div class="w-[95%] h-4 bg-linear-to-b from-lime-500 to-lime-700">
                                 <span class="sr-only">95%</span>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                     <li>
                         <span class="text-lg">Angular</span>
                         <div class="border border-gray-600 dark:border-gray-400">
-                            <div class="w-[90%] h-4 bg-gradient-to-b from-lime-500 to-lime-700">
+                            <div class="w-[90%] h-4 bg-linear-to-b from-lime-500 to-lime-700">
                                 <span class="sr-only">90%</span>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                     <li>
                         <span class="text-lg">Tailwind CSS</span>
                         <div class="border border-gray-600 dark:border-gray-400">
-                            <div class="w-[90%] h-4 bg-gradient-to-b from-lime-500 to-lime-700">
+                            <div class="w-[90%] h-4 bg-linear-to-b from-lime-500 to-lime-700">
                                 <span class="sr-only">90%</span>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
         </x-container>
     </section>
     <section id="meet-the-bird" class="mt-8">
-        <div class="bg-gradient-to-b from-orange-500 to-orange-700 px-4 py-8 md:py-16">
+        <div class="bg-linear-to-b from-orange-500 to-orange-700 px-4 py-8 md:py-16">
             <h2 class="text-3xl md:text-5xl text-white font-bold text-center">Meet the bird</h2>
         </div>
         <x-container>
