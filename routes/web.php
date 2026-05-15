@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Auth\ConfirmPasswordController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -18,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 
-Route::get('about-me', AboutController::class)->name('about');
+Route::view('about-me', 'pages.about')->name('about');
 Route::view('privacy-policy', 'pages.privacy-policy')->name('privacy-policy');
 
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
