@@ -6,15 +6,13 @@ namespace App\Models;
 
 use App\Notifications\ResetPassword;
 use App\Notifications\VerifyEmail;
-use Filament\Models\Contracts\FilamentUser;
-use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Override;
 
-final class User extends Authenticatable implements FilamentUser, MustVerifyEmail
+final class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory;
     use Notifiable;
@@ -45,11 +43,6 @@ final class User extends Authenticatable implements FilamentUser, MustVerifyEmai
             'password' => 'hashed',
             'is_admin' => 'boolean',
         ];
-    }
-
-    public function canAccessPanel(Panel $panel): bool
-    {
-        return $this->is_admin;
     }
 
     #[Override]
