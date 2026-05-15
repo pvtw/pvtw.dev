@@ -9,7 +9,7 @@ require 'recipe/laravel.php';
 // Config
 
 set('application', 'pvtw');
-set('repository', 'https://github.com/pvtw/pvtw.dev.git');
+set('repository', 'git@github.com:pvtw/pvtw.dev.git');
 
 // Hosts
 
@@ -18,14 +18,11 @@ host('pvtw.dev')
     ->set('hostname', 'pvtw.dev')
     ->set('deploy_path', '/var/www/{{hostname}}');
 
-task('npm:install', function (): void {
-    cd('{{release_or_current_path}}');
-    run('source $HOME/.nvm/nvm.sh && npm install');
-});
+// Tasks
 
-task('npm:run:build', function (): void {
+task('npm', function (): void {
     cd('{{release_or_current_path}}');
-    run('source $HOME/.nvm/nvm.sh && npm run build');
+    run('source $HOME/.nvm/nvm.sh && npm install && npm run build');
 });
 
 task('deploy', [
@@ -37,8 +34,7 @@ task('deploy', [
     'artisan:view:cache',
     'artisan:event:cache',
     'artisan:migrate',
-    'npm:install',
-    'npm:run:build',
+    'npm',
     'deploy:publish',
 ]);
 
