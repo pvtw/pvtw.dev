@@ -36,6 +36,7 @@ task('deploy', [
     'artisan:migrate',
     'npm',
     'deploy:publish',
+    'artisan:reload',
 ]);
 
 // Hooks
