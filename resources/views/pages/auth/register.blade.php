@@ -1,4 +1,4 @@
-<x-auth-layout title="Register" description="This is the page where you can register to my website.">
+<x-layouts::auth title="Register" description="This is the page where you can register to my website.">
     <form method="post" action="{{ route('register') }}">
         @csrf
         
@@ -44,4 +44,4 @@
 
         <x-submit-button>Create</x-submit-button>
     </form>
-</x-auth-layout>
+</x-layouts::auth>

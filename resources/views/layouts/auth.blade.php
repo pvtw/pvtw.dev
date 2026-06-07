@@ -4,7 +4,7 @@
     "image" => config('app.url') . "/images/og-image.png",
 ])
 
-<x-minimal-layout :$title :$description :$image>
+<x-layouts::minimal :$title :$description :$image>
     <div class="bg-primary w-full min-h-dvh flex flex-col md:justify-center items-center p-4">
         <a href="{{ route('home') }}" class="block w-32 h-32 outline-none focus-visible:ring-3 focus-visible:ring-blue-500" wire:navigate>
             <img src="/images/logo-128x128.png" alt="Logo">
@@ -19,4 +19,4 @@
             </div>
         </div>
     </div>
-</x-minimal-layout>
+</x-layouts::minimal>

@@ -1,4 +1,4 @@
-<x-app-layout title="Privacy Policy" description="This is my privacy policy. Learn how and why I use cookies and how I use your data.">
+<x-layouts::app title="Privacy Policy" description="This is my privacy policy. Learn how and why I use cookies and how I use your data.">
     <x-container>
         <div class="max-w-none prose prose-neutral dark:prose-invert lg:prose-lg prose-a:text-blue-500 prose-a:font-normal prose-a:no-underline prose-a:hover:underline prose-a:outline-none prose-a:focus-visible:ring-3 prose-a:focus-visible:ring-blue-500 prose-pre:outline-none prose-pre:focus-visible:ring-3 prose-pre:focus-visible:ring-blue-500">
             <h1>Privacy Policy</h1>
@@ -142,4 +142,4 @@
             </ul>
         </div>
     </x-container>
-</x-app-layout>
+</x-layouts::app>

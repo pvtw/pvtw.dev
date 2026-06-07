@@ -13,7 +13,7 @@ final class LoginController extends Controller
 {
     public function create(): View
     {
-        return view('pages.auth.login');
+        return view('pages::auth.login');
     }
 
     public function store(LoginRequest $request): RedirectResponse

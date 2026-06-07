@@ -1,4 +1,4 @@
-<x-auth-layout title="Reset Password" description="This is the page where you can reset your password.">
+<x-layouts::auth title="Reset Password" description="This is the page where you can reset your password.">
     <form method="post" action="{{ route('password.update') }}">
         @csrf
         
@@ -26,4 +26,4 @@
 
         <x-submit-button>Reset Password</x-submit-button>
     </form>
-</x-auth-layout>
+</x-layouts::auth>

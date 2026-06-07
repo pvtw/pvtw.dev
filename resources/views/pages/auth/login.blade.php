@@ -1,4 +1,4 @@
-<x-auth-layout title="Login" description="This is the page where you can login to my website.">
+<x-layouts::auth title="Login" description="This is the page where you can login to my website.">
     @if (session('status'))
         <div class="mt-4 font-medium text-sm text-green-600 dark:text-green-400">
             {{ session('status') }}
@@ -40,4 +40,4 @@
 
         <x-submit-button>Submit</x-submit-button>
     </form>
-</x-auth-layout>
+</x-layouts::auth>

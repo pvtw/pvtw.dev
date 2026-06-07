@@ -22,7 +22,7 @@ final class PostController extends Controller
                 ->get();
         });
 
-        return view('pages.posts.index', [
+        return view('pages::posts.index', [
             'posts' => $posts,
         ]);
     }
@@ -32,7 +32,7 @@ final class PostController extends Controller
      */
     public function show(Post $post): View
     {
-        return view('pages.posts.show', [
+        return view('pages::posts.show', [
             'post' => $post,
         ]);
     }

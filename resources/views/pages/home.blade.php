@@ -1,4 +1,4 @@
-<x-app-layout title="Patrick van 't Wout" description="Hi there! My name is Patrick van 't Wout and this is my mystical world of code and hacking." fixed="true">
+<x-layouts::app title="Patrick van 't Wout" description="Hi there! My name is Patrick van 't Wout and this is my mystical world of code and hacking." fixed="true">
     <section class="bg-linear-to-b/srgb from-fuchsia-500 from-60% to-gray-100 dark:to-gray-900 via-green-500 via-80% min-h-dvh flex justify-center items-center">
         <div class="flex flex-col-reverse md:flex-row justify-center items-center md:gap-8 p-4 mt-16 md:mt-0">
             <div class="max-w-[24rem] max-h-96 w-full opacity-50 rounded-full overflow-hidden mt-4 md:mt-0">
@@ -66,4 +66,4 @@
           </div>
         </div>
     </section>
-</x-app-layout>
+</x-layouts::app>

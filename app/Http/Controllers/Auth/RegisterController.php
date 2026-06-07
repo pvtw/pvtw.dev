@@ -16,7 +16,7 @@ final class RegisterController extends Controller
 {
     public function create(): View
     {
-        return view('pages.auth.register');
+        return view('pages::auth.register');
     }
 
     public function store(RegisterRequest $request): RedirectResponse

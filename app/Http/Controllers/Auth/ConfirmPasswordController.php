@@ -15,7 +15,7 @@ final class ConfirmPasswordController extends Controller
 {
     public function create(): View
     {
-        return view('pages.auth.confirm-password');
+        return view('pages::auth.confirm-password');
     }
 
     /**

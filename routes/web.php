@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 
-Route::view('about-me', 'pages.about')->name('about');
-Route::view('privacy-policy', 'pages.privacy-policy')->name('privacy-policy');
+Route::view('about-me', 'pages::about')->name('about');
+Route::view('privacy-policy', 'pages::privacy-policy')->name('privacy-policy');
 
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
 

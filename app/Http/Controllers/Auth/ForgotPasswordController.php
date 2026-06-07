@@ -14,7 +14,7 @@ final class ForgotPasswordController extends Controller
 {
     public function create(): View
     {
-        return view('pages.auth.forgot-password');
+        return view('pages::auth.forgot-password');
     }
 
     public function store(ForgotPasswordRequest $request): RedirectResponse

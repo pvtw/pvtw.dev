@@ -1,4 +1,4 @@
-<x-auth-layout title="Confirm Password" description="This is the page where you can confirm your password.">
+<x-layouts::auth title="Confirm Password" description="This is the page where you can confirm your password.">
     <form method="post" action="{{ route('password.confirm') }}">
         @csrf
         
@@ -12,4 +12,4 @@
 
         <x-submit-button>Confirm</x-submit-button>
     </form>
-</x-auth-layout>
+</x-layouts::auth>

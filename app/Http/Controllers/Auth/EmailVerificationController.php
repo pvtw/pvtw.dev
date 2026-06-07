@@ -27,7 +27,7 @@ final class EmailVerificationController extends Controller
     {
         return $request->user()->hasVerifiedEmail()
             ? redirect()->intended(route('home', absolute: false))
-            : view('pages.auth.verify-email');
+            : view('pages::auth.verify-email');
     }
 
     public function store(Request $request): RedirectResponse

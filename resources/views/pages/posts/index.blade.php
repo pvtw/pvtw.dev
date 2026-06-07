@@ -1,4 +1,4 @@
-<x-app-layout title="My Posts" description="This is the page where you find my posts.">
+<x-layouts::app title="My Posts" description="This is the page where you find my posts.">
     <x-container>
         <x-heading>My Posts</x-heading>
         <div class="flex flex-col gap-4 mt-4">
@@ -12,4 +12,4 @@
             @endforeach
         </div>
     </x-container>
-</x-app-layout>
+</x-layouts::app>

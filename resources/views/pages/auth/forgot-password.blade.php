@@ -1,4 +1,4 @@
-<x-auth-layout title="Forgot Password" description="This is the page where you can request a new password.">
+<x-layouts::auth title="Forgot Password" description="This is the page where you can request a new password.">
     <div class="mt-4 text-sm">
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
     </div>
@@ -22,4 +22,4 @@
 
         <x-submit-button>Email Password Reset Link</x-submit-button>
     </form>
-</x-auth-layout>
+</x-layouts::auth>
