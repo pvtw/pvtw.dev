@@ -22,7 +22,7 @@ host('pvtw.dev')
 
 task('npm', function (): void {
     cd('{{release_or_current_path}}');
-    run('source $HOME/.nvm/nvm.sh && npm install && npm run build');
+    run('source $HOME/.nvm/nvm.sh && npm install --ignore-scripts && npm run build');
 });
 
 task('deploy', [
