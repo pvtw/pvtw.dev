@@ -5,7 +5,7 @@
     "keywords": ["pvtw", "blog", "posts", "projects", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.4",
+        "php": "^8.5",
         "laravel/framework": "^13.0",
         "laravel/socialite": "^5.14",
         "laravel/tinker": "^3.0",
