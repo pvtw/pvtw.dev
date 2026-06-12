@@ -14,7 +14,7 @@
             </svg>
         @endif
     </summary>
-    <ul class="absolute top-12 right-0 bg-gray-100 dark:bg-gray-900 text-black dark:text-white p-2 rounded-sm shadow-sm">
+    <ul class="absolute top-12 right-0 bg-gray-100 dark:bg-gray-900 text-black dark:text-white p-2 border border-gray-500 rounded-sm shadow-sm">
         <li>
             <form method="post" action="{{ route('logout') }}">
                 @csrf
