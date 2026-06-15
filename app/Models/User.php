@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Notifications\ResetPassword;
 use App\Notifications\VerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -33,7 +34,10 @@ final class User extends Authenticatable implements MustVerifyEmail
 
     protected $attributes = [
         'password' => null,
-        'is_admin' => false,
+    ];
+
+    protected $appends = [
+        'is_admin',
     ];
 
     protected function casts(): array
@@ -41,8 +45,16 @@ final class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'is_admin' => 'boolean',
         ];
+    }
+
+    protected function isAdmin(): Attribute
+    {
+        return Attribute::make(
+            get: function (mixed $value, array $attributes): bool {
+                return in_array($attributes[$this->getKeyName()], config('admin.user_keys'));
+            },
+        );
     }
 
     #[Override]
