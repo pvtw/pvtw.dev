@@ -28,6 +28,9 @@ final class Post extends Model
     {
         return [
             'published_at' => 'immutable_datetime',
+            'created_at' => 'immutable_datetime',
+            'updated_at' => 'immutable_datetime',
+            'deleted_at' => 'immutable_datetime',
         ];
     }
 
