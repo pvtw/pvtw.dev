@@ -2,16 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature;
+test('privacy policy screen can be rendered', function (): void {
+    $response = $this->get('/privacy-policy');
 
-use Tests\TestCase;
-
-final class PrivacyPolicyTest extends TestCase
-{
-    public function test_privacy_policy_screen_can_be_rendered(): void
-    {
-        $response = $this->get('/privacy-policy');
-
-        $response->assertStatus(200);
-    }
-}
+    $response->assertStatus(200);
+});

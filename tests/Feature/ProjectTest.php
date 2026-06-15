@@ -2,16 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature;
+test('projects screen can be rendered', function (): void {
+    $response = $this->get('/projects');
 
-use Tests\TestCase;
-
-final class ProjectTest extends TestCase
-{
-    public function test_projects_screen_can_be_rendered(): void
-    {
-        $response = $this->get('/projects');
-
-        $response->assertStatus(200);
-    }
-}
+    $response->assertStatus(200);
+});

@@ -2,29 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature\Auth;
+test('registration screen can be rendered', function (): void {
+    $response = $this->get('/register');
 
-use Tests\TestCase;
+    $response->assertStatus(200);
+});
 
-final class RegistrationTest extends TestCase
-{
-    public function test_registration_screen_can_be_rendered(): void
-    {
-        $response = $this->get('/register');
+test('new users can register', function (): void {
+    $response = $this->post('/register', [
+        'name' => 'Test User',
+        'email' => 'test@example.com',
+        'password' => 'Password123!',
+        'password_confirmation' => 'Password123!',
+    ]);
 
-        $response->assertStatus(200);
-    }
-
-    public function test_new_users_can_register(): void
-    {
-        $response = $this->post('/register', [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => 'Password123!',
-            'password_confirmation' => 'Password123!',
-        ]);
-
-        $this->assertAuthenticated();
-        $response->assertRedirect(route('home', absolute: false));
-    }
-}
+    $this->assertAuthenticated();
+    $response->assertRedirect(route('home', absolute: false));
+});
