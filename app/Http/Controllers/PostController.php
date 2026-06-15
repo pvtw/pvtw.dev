@@ -8,7 +8,7 @@ use App\Models\Post;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-final class PostController extends Controller
+final class PostController
 {
     /**
      * Display a listing of the resource.

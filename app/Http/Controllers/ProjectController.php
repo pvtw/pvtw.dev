@@ -8,7 +8,7 @@ use App\Models\Project;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 
-final class ProjectController extends Controller
+final class ProjectController
 {
     /**
      * Display a listing of the resource.

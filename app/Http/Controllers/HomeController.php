@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 
-final class HomeController extends Controller
+final class HomeController
 {
     public function __invoke(): View
     {
