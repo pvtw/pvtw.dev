@@ -1,3 +1,5 @@
+@use('Illuminate\Validation\Rules\Password')
+
 <x-layouts::auth title="Reset Password" description="This is the page where you can reset your password.">
     <form method="post" action="{{ route('password.update') }}">
         @csrf
@@ -10,7 +12,7 @@
         
         <x-input-group class="mt-4">
             <x-label for="form-password">New Password</x-label>
-            <x-text-input type="password" name="password" id="form-password" required autofocus autocomplete="new-password" />
+            <x-text-input type="password" name="password" id="form-password" required autofocus autocomplete="new-password" passwordrules="{{ Password::defaults()->toPasswordRulesString() }}" />
             @error('password')
                 <x-error>{{ $message }}</x-error>
             @enderror
@@ -18,7 +20,7 @@
 
         <x-input-group class="mt-4">
             <x-label for="form-password-confirmation">Confirm New Password</x-label>
-            <x-text-input type="password" name="password_confirmation" id="form-password-confirmation" required autocomplete="new-password" />
+            <x-text-input type="password" name="password_confirmation" id="form-password-confirmation" required autocomplete="new-password" passwordrules="{{ Password::defaults()->toPasswordRulesString() }}" />
             @error('password_confirmation')
                 <x-error>{{ $message }}</x-error>
             @enderror

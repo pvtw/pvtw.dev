@@ -1,3 +1,5 @@
+@use('Illuminate\Validation\Rules\Password')
+
 <x-layouts::auth title="Register" description="This is the page where you can register to my website.">
     <form method="post" action="{{ route('register') }}">
         @csrf
@@ -28,7 +30,7 @@
 
         <x-input-group class="mt-4">
             <x-label for="form-password">Password</x-label>
-            <x-text-input type="password" name="password" id="form-password" required autocomplete="new-password" />
+            <x-text-input type="password" name="password" id="form-password" required autocomplete="new-password" passwordrules="{{ Password::defaults()->toPasswordRulesString() }}" />
             @error('password')
                 <x-error>{{ $message }}</x-error>
             @enderror
@@ -36,7 +38,7 @@
 
         <x-input-group class="mt-4">
             <x-label for="form-password-confirmation">Confirm Password</x-label>
-            <x-text-input type="password" name="password_confirmation" id="form-password-confirmation" required autocomplete="new-password" />
+            <x-text-input type="password" name="password_confirmation" id="form-password-confirmation" required autocomplete="new-password" passwordrules="{{ Password::defaults()->toPasswordRulesString() }}" />
             @error('password_confirmation')
                 <x-error>{{ $message }}</x-error>
             @enderror
