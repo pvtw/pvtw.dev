@@ -34,6 +34,6 @@ final class AppServiceProvider extends ServiceProvider
 
         Blade::if('admin', fn (): bool => Auth::user()?->is_admin ?? false);
 
-        Password::defaults(fn (): Password => Password::min(8)->max(100)->mixedCase()->symbols());
+        Password::defaults(fn (): Password => Password::min(8)->max(100)->mixedCase()->numbers()->symbols());
     }
 }
