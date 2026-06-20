@@ -41,7 +41,7 @@ final class LoginWithGitHubController
         $user = User::where('email', $githubUser->getEmail())->first();
 
         if (null !== $user) {
-            $user->update(['github_id', $githubUser->getId()]);
+            $user->update(['github_id' => $githubUser->getId()]);
 
             return $user;
         }
