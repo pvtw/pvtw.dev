@@ -38,7 +38,7 @@ final class VerifyEmail extends Notification implements ShouldQueue
      * @param  mixed  $notifiable
      * @return array|string
      */
-    public function via($notifiable)
+    public function via($notifiable): array
     {
         return ['mail'];
     }
@@ -53,8 +53,8 @@ final class VerifyEmail extends Notification implements ShouldQueue
     {
         $verificationUrl = $this->verificationUrl($notifiable);
 
-        if (static::$toMailCallback) {
-            return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
+        if (self::$toMailCallback) {
+            return call_user_func(self::$toMailCallback, $notifiable, $verificationUrl);
         }
 
         return $this->buildMailMessage($verificationUrl);
@@ -66,9 +66,9 @@ final class VerifyEmail extends Notification implements ShouldQueue
      * @param  string  $url
      * @return MailMessage
      */
-    protected function buildMailMessage($url)
+    private function buildMailMessage($url)
     {
-        return (new MailMessage())
+        return new MailMessage()
             ->subject(Lang::get('Verify Email Address'))
             ->line(Lang::get('Please click the button below to verify your email address.'))
             ->action(Lang::get('Verify Email Address'), $url)
@@ -81,10 +81,10 @@ final class VerifyEmail extends Notification implements ShouldQueue
      * @param  mixed  $notifiable
      * @return string
      */
-    protected function verificationUrl($notifiable)
+    private function verificationUrl($notifiable)
     {
-        if (static::$createUrlCallback) {
-            return call_user_func(static::$createUrlCallback, $notifiable);
+        if (self::$createUrlCallback) {
+            return call_user_func(self::$createUrlCallback, $notifiable);
         }
 
         return URL::temporarySignedRoute(
@@ -92,7 +92,7 @@ final class VerifyEmail extends Notification implements ShouldQueue
             Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
             [
                 'id' => $notifiable->getKey(),
-                'hash' => sha1($notifiable->getEmailForVerification()),
+                'hash' => sha1((string) $notifiable->getEmailForVerification()),
             ]
         );
     }
@@ -101,21 +101,19 @@ final class VerifyEmail extends Notification implements ShouldQueue
      * Set a callback that should be used when creating the email verification URL.
      *
      * @param  Closure  $callback
-     * @return void
      */
     public static function createUrlUsing($callback): void
     {
-        static::$createUrlCallback = $callback;
+        self::$createUrlCallback = $callback;
     }
 
     /**
      * Set a callback that should be used when building the notification mail message.
      *
      * @param  Closure  $callback
-     * @return void
      */
     public static function toMailUsing($callback): void
     {
-        static::$toMailCallback = $callback;
+        self::$toMailCallback = $callback;
     }
 }
