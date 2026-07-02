@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\Auth\ResetPasswordRequest;
+use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -23,9 +24,9 @@ final class ResetPasswordController
     {
         $status = Password::reset(
             $request->validated(),
-            function ($user) use ($request): void {
+            function (User $user) use ($request): void {
                 $user->forceFill([
-                    'password' => $request->password,
+                    'password' => $request->string('password')->value(),
                     'remember_token' => Str::random(60),
                 ])->save();
 
