@@ -7,12 +7,14 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
+use Symfony\Component\HttpFoundation\RedirectResponse as SymfonyRedirectResponse;
 
 final class LoginWithGitHubController
 {
-    public function create(): RedirectResponse
+    public function create(): SymfonyRedirectResponse|RedirectResponse
     {
         return Socialite::driver('github')->redirect();
     }
@@ -30,36 +32,44 @@ final class LoginWithGitHubController
 
     private function getUserFromGithubUser(SocialiteUser $githubUser): User
     {
-        /** @var User|null $user */
-        $user = User::where('github_id', $githubUser->getId())->first();
+        return DB::transaction(function () use ($githubUser): User {
+            $userFromGithubId = User::query()
+                ->where('github_id', $githubUser->getId())
+                ->first();
 
-        if (null !== $user) {
-            return $user;
-        }
+            if (null !== $userFromGithubId) {
+                return $userFromGithubId;
+            }
 
-        /** @var User|null $user */
-        $user = User::where('email', $githubUser->getEmail())->first();
+            $userFromEmail = User::query()
+                ->where('email', $githubUser->getEmail())
+                ->first();
 
-        if (null !== $user) {
-            $user->update(['github_id' => $githubUser->getId()]);
+            if (null !== $userFromEmail) {
+                $userFromEmail->update(['github_id' => $githubUser->getId()]);
 
-            return $user;
-        }
+                return $userFromEmail;
+            }
 
-        $attributes = [
-            'name' => $githubUser->getName() ?? $githubUser->getNickname(),
-            'email' => $githubUser->getEmail(),
-            'github_id' => $githubUser->getId(),
-            'avatar_url' => $githubUser->getAvatar(),
-        ];
-
-        if (0 === User::where('username', $githubUser->getNickname())->count()) {
             $attributes = [
-                'username' => $githubUser->getNickname(),
-                ...$attributes,
+                'name' => $githubUser->getName() ?? $githubUser->getNickname(),
+                'email' => $githubUser->getEmail(),
+                'github_id' => $githubUser->getId(),
+                'avatar_url' => $githubUser->getAvatar(),
             ];
-        }
 
-        return User::create($attributes);
+            $userFromUsername = User::query()
+                ->where('username', $githubUser->getNickname())
+                ->first();
+
+            if (null === $userFromUsername) {
+                $attributes = [
+                    'username' => $githubUser->getNickname(),
+                    ...$attributes,
+                ];
+            }
+
+            return User::query()->create($attributes);
+        });
     }
 }
