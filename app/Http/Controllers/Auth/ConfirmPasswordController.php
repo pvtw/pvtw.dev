@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\Auth\ConfirmPasswordRequest;
+use App\Models\User;
+use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +22,10 @@ final class ConfirmPasswordController
     /**
      * Confirm the user's password.
      */
-    public function store(ConfirmPasswordRequest $request): RedirectResponse
+    public function store(ConfirmPasswordRequest $request, #[CurrentUser] User $user): RedirectResponse
     {
         $credentials = [
-            'email' => $request->user()->email,
+            'email' => $user->email,
             ...$request->validated(),
         ];
 

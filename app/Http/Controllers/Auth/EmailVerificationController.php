@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
+use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 final class EmailVerificationController
 {
-    public function index(EmailVerificationRequest $request): RedirectResponse
+    public function index(EmailVerificationRequest $request, #[CurrentUser] User $user): RedirectResponse
     {
-        if ($request->user()->hasVerifiedEmail()) {
+        if ($user->hasVerifiedEmail()) {
             return redirect()->intended(route('home', absolute: false).'?verified=1');
         }
 
@@ -22,20 +23,20 @@ final class EmailVerificationController
         return redirect()->intended(route('home', absolute: false).'?verified=1');
     }
 
-    public function create(Request $request): RedirectResponse|View
+    public function create(#[CurrentUser] User $user): RedirectResponse|View
     {
-        return $request->user()->hasVerifiedEmail()
+        return $user->hasVerifiedEmail()
             ? redirect()->intended(route('home', absolute: false))
             : view('pages::auth.verify-email');
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(#[CurrentUser] User $user): RedirectResponse
     {
-        if ($request->user()->hasVerifiedEmail()) {
+        if ($user->hasVerifiedEmail()) {
             return redirect()->intended(route('home', absolute: false));
         }
 
-        $request->user()->sendEmailVerificationNotification();
+        $user->sendEmailVerificationNotification();
 
         return back()->with('status', 'verification-link-sent');
     }
