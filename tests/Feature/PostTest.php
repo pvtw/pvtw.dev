@@ -13,7 +13,7 @@ test('posts screen can be rendered', function (): void {
 test('post screen can be rendered', function (): void {
     $post = Post::factory()->create();
 
-    $response = $this->get(route('posts.show', ['post' => $post]));
+    $response = $this->get(route('posts.show', $post->slug));
 
     $response->assertStatus(200);
 });

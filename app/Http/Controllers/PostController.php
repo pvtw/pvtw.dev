@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 final class PostController
 {
@@ -30,8 +32,21 @@ final class PostController
     /**
      * Display the specified resource.
      */
-    public function show(Post $post): View
+    public function show(string $slug): View
     {
+        $key = 'post.id.'.Str::slug($slug);
+
+        $post = Cache::tags(['posts'])->rememberForever($key, function () use ($slug): Post {
+            $post = Post::query()
+                ->where('published_at', '!=', null)
+                ->where('slug', $slug)
+                ->first();
+
+            throw_if( ! $post, ModelNotFoundException::class);
+
+            return $post;
+        });
+
         return view('pages::posts.show', [
             'post' => $post,
         ]);

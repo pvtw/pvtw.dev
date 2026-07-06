@@ -9,8 +9,6 @@ use Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Str;
 
 /**
  * @property int $id
@@ -53,19 +51,5 @@ final class Post extends Model
             'updated_at' => 'immutable_datetime',
             'deleted_at' => 'immutable_datetime',
         ];
-    }
-
-    public function resolveRouteBinding($value, $field = null)
-    {
-        $field ??= 'id';
-
-        $key = 'post.'.$field.'.'.Str::slug($value);
-
-        return Cache::tags(['posts'])->rememberForever($key, function () use ($field, $value) {
-            return $this->query()
-                ->whereNotNull('published_at')
-                ->where($field, $value)
-                ->firstOrFail();
-        });
     }
 }

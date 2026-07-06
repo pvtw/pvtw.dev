@@ -23,7 +23,7 @@ Route::view('privacy-policy', 'pages::privacy-policy')->name('privacy-policy');
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('post/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+Route::get('post/{slug}', [PostController::class, 'show'])->name('posts.show');
 
 Route::middleware(['guest'])->group(function (): void {
     Route::get('login', [LoginController::class, 'create'])->name('login');
