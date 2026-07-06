@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
@@ -17,9 +18,10 @@ final class PostController
      */
     public function index(): View
     {
-        $posts = Cache::tags(['posts'])->rememberForever('posts.index', function () {
+        /** @var Collection<int, Post> $posts */
+        $posts = Cache::tags(['posts'])->rememberForever('posts.index', function (): Collection {
             return Post::query()
-                ->whereNotNull('published_at')
+                ->where('published_at', '!=', null)
                 ->latest('published_at')
                 ->get();
         });
