@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+use function Pest\Laravel\get;
+
 test('privacy policy screen can be rendered', function (): void {
-    $response = $this->get('/privacy-policy');
+    $response = get('/privacy-policy');
 
     $response->assertStatus(200);
 });
