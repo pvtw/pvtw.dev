@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Notifications;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -17,6 +18,9 @@ final class VerifyEmail extends Notification implements ShouldQueue
 {
     use Queueable;
 
+    /**
+     * @return array<int, string>
+     */
     public function via(object $notifiable): array
     {
         return ['mail'];
@@ -35,12 +39,14 @@ final class VerifyEmail extends Notification implements ShouldQueue
 
     private function verificationUrl(object $notifiable): string
     {
+        assert($notifiable instanceof User);
+
         return URL::temporarySignedRoute(
             'verification.verify',
-            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
+            Carbon::now()->addMinutes(Config::integer('auth.verification.expire', 60)),
             [
                 'id' => $notifiable->getKey(),
-                'hash' => sha1((string) $notifiable->getEmailForVerification()),
+                'hash' => sha1($notifiable->getEmailForVerification()),
             ]
         );
     }

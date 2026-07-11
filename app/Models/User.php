@@ -79,11 +79,14 @@ final class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    /**
+     * @return Attribute<bool, null>
+     */
     protected function isAdmin(): Attribute
     {
         return Attribute::make(
             get: function (mixed $value, array $attributes): bool {
-                return in_array($attributes[$this->getKeyName()], config('admin.user_keys'));
+                return in_array($attributes[$this->getKeyName()], config()->array('admin.user_keys'));
             },
         );
     }

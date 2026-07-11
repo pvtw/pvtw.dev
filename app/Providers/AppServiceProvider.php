@@ -32,7 +32,7 @@ final class AppServiceProvider extends ServiceProvider
         Model::preventSilentlyDiscardingAttributes( ! $isProduction);
         Model::preventAccessingMissingAttributes( ! $isProduction);
 
-        Blade::if('admin', fn (): bool => Auth::user()?->is_admin ?? false);
+        Blade::if('admin', fn (): bool => Auth::user()->is_admin ?? false);
 
         Password::defaults(fn (): Password => Password::min(8)->max(100)->mixedCase()->numbers()->symbols());
     }
