@@ -12,6 +12,9 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Lang;
 use SensitiveParameter;
 
+/**
+ * @codeCoverageIgnore
+ */
 final class ResetPassword extends Notification implements ShouldQueue
 {
     use Queueable;

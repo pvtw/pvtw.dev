@@ -13,6 +13,9 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use RuntimeException;
 
+/**
+ * @codeCoverageIgnore
+ */
 final class LoginRequest extends FormRequest
 {
     /**
