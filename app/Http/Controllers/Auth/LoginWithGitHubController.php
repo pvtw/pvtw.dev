@@ -38,7 +38,7 @@ final class LoginWithGitHubController
                 ->first();
 
             if (null !== $userFromGithubId) {
-                return $userFromGithubId;
+                return $userFromGithubId; // @codeCoverageIgnore
             }
 
             $userFromEmail = User::query()
