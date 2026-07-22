@@ -28,15 +28,6 @@ final class Project extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = [
-        'title',
-        'description',
-        'repository_url',
-        'repository_label',
-        'started_at',
-        'finished_at',
-    ];
-
     protected function casts(): array
     {
         return [

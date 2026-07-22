@@ -34,6 +34,8 @@ final class AppServiceProvider extends ServiceProvider
         Model::preventSilentlyDiscardingAttributes( ! $isProduction);
         Model::preventAccessingMissingAttributes( ! $isProduction);
 
+        Model::unguard();
+
         Date::use(CarbonImmutable::class);
 
         Blade::if('admin', fn (): bool => Auth::user()->is_admin ?? false);

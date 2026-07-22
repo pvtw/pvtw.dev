@@ -28,15 +28,6 @@ final class Post extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = [
-        'title',
-        'slug',
-        'content',
-        'meta_title',
-        'meta_description',
-        'published_at',
-    ];
-
     protected function casts(): array
     {
         return [

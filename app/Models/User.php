@@ -39,15 +39,6 @@ final class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
     use SoftDeletes;
 
-    protected $fillable = [
-        'name',
-        'username',
-        'email',
-        'password',
-        'github_id',
-        'avatar_url',
-    ];
-
     protected $hidden = [
         'password',
         'remember_token',
