@@ -10,7 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 
-final class EmailVerificationController
+final readonly class EmailVerificationController
 {
     public function index(EmailVerificationRequest $request, #[CurrentUser] User $user): RedirectResponse
     {

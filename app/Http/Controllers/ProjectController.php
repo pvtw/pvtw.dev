@@ -9,7 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
 
-final class ProjectController
+final readonly class ProjectController
 {
     /**
      * Display a listing of the resource.

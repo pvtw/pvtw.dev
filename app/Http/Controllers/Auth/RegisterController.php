@@ -11,7 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
-final class RegisterController
+final readonly class RegisterController
 {
     public function create(): View
     {

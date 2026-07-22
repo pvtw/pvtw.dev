@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
-final class ResetPasswordController
+final readonly class ResetPasswordController
 {
     public function create(Request $request): View
     {

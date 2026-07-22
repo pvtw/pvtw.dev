@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
-final class PostController
+final readonly class PostController
 {
     /**
      * Display a listing of the resource.

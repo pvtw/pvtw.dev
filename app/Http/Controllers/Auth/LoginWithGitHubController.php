@@ -12,7 +12,7 @@ use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpFoundation\RedirectResponse as SymfonyRedirectResponse;
 
-final class LoginWithGitHubController
+final readonly class LoginWithGitHubController
 {
     public function create(): SymfonyRedirectResponse|RedirectResponse
     {

@@ -12,7 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
-final class ConfirmPasswordController
+final readonly class ConfirmPasswordController
 {
     public function create(): View
     {
