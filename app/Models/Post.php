@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Carbon\CarbonImmutable;
+use Carbon\CarbonInterface;
 use Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,10 +17,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $content
  * @property string $meta_title
  * @property string $meta_description
- * @property CarbonImmutable|null $published_at
- * @property CarbonImmutable|null $created_at
- * @property CarbonImmutable|null $updated_at
- * @property CarbonImmutable|null $deleted_at
+ * @property CarbonInterface|null $published_at
+ * @property CarbonInterface|null $created_at
+ * @property CarbonInterface|null $updated_at
+ * @property CarbonInterface|null $deleted_at
  */
 final class Post extends Model
 {
@@ -46,10 +46,10 @@ final class Post extends Model
             'content' => 'string',
             'meta_title' => 'string',
             'meta_description' => 'string',
-            'published_at' => 'immutable_datetime',
-            'created_at' => 'immutable_datetime',
-            'updated_at' => 'immutable_datetime',
-            'deleted_at' => 'immutable_datetime',
+            'published_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
         ];
     }
 }

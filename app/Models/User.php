@@ -6,7 +6,7 @@ namespace App\Models;
 
 use App\Notifications\ResetPassword;
 use App\Notifications\VerifyEmail;
-use Carbon\CarbonImmutable;
+use Carbon\CarbonInterface;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -21,14 +21,14 @@ use Override;
  * @property string $name
  * @property string|null $username
  * @property string $email
- * @property CarbonImmutable|null $email_verified_at
+ * @property CarbonInterface|null $email_verified_at
  * @property string|null $password
  * @property string|null $github_id
  * @property string|null $avatar_url
  * @property string|null $remember_token
- * @property CarbonImmutable|null $created_at
- * @property CarbonImmutable|null $updated_at
- * @property CarbonImmutable|null $deleted_at
+ * @property CarbonInterface|null $created_at
+ * @property CarbonInterface|null $updated_at
+ * @property CarbonInterface|null $deleted_at
  *
  * @property-read bool $is_admin
  */
@@ -68,14 +68,14 @@ final class User extends Authenticatable implements MustVerifyEmail
             'name' => 'string',
             'username' => 'string',
             'email' => 'string',
-            'email_verified_at' => 'immutable_datetime',
+            'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'github_id' => 'string',
             'avatar_url' => 'string',
             'remember_token' => 'string',
-            'created_at' => 'immutable_datetime',
-            'updated_at' => 'immutable_datetime',
-            'deleted_at' => 'immutable_datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
         ];
     }
 

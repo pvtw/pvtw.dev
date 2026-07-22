@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Carbon\CarbonImmutable;
+use Carbon\CarbonInterface;
 use Database\Factories\ProjectFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,11 +16,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $description
  * @property string $repository_url
  * @property string $repository_label
- * @property CarbonImmutable $started_at
- * @property CarbonImmutable|null $finished_at
- * @property CarbonImmutable|null $created_at
- * @property CarbonImmutable|null $updated_at
- * @property CarbonImmutable|null $deleted_at
+ * @property CarbonInterface $started_at
+ * @property CarbonInterface|null $finished_at
+ * @property CarbonInterface|null $created_at
+ * @property CarbonInterface|null $updated_at
+ * @property CarbonInterface|null $deleted_at
  */
 final class Project extends Model
 {
@@ -45,11 +45,11 @@ final class Project extends Model
             'description' => 'string',
             'repository_url' => 'string',
             'repository_label' => 'string',
-            'started_at' => 'immutable_datetime',
-            'finished_at' => 'immutable_datetime',
-            'created_at' => 'immutable_datetime',
-            'updated_at' => 'immutable_datetime',
-            'deleted_at' => 'immutable_datetime',
+            'started_at' => 'datetime',
+            'finished_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
         ];
     }
 }
