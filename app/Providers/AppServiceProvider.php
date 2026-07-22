@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 
@@ -29,6 +30,8 @@ final class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $isProduction = App::isProduction();
+
+        DB::prohibitDestructiveCommands($isProduction);
 
         Model::preventLazyLoading( ! $isProduction);
         Model::preventSilentlyDiscardingAttributes( ! $isProduction);
