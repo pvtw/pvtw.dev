@@ -27,7 +27,7 @@ test('abort when user is not admin', function (): void {
 
 test('return success response when user is admin', function (): void {
     $user = User::factory()->create();
-    config(['admin.user_keys' => [$user->id]]);
+    config(['admin.user_keys' => [$user->getKey()]]);
     Route::middleware(['admin'])->get('_test', fn (): string => '');
 
     $response = actingAs($user)->get('_test');
