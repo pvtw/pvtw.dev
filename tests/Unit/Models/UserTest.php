@@ -26,6 +26,15 @@ test('user has attributes', function (): void {
     ]);
 });
 
+test('is_admin attribute', function (): void {
+    $user = User::factory()->create();
+    $admin = User::factory()->create();
+    config(['admin.user_keys' => [$admin->getKey()]]);
+
+    expect($user->is_admin)->toBe(false);
+    expect($admin->is_admin)->toBe(true);
+});
+
 test('sends email verification notification', function (): void {
     $user = User::factory()->create();
     Notification::fake();
