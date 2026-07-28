@@ -7,7 +7,7 @@ use App\Notifications\ResetPassword;
 use App\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Notification;
 
-test('user has properties', function (): void {
+test('user has attributes', function (): void {
     $user = User::factory()->create()->refresh();
     $keys = array_keys($user->toArray());
 
