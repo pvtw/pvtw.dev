@@ -21,6 +21,7 @@ jobs:
         image: mysql:8
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_HOST: mysql
           MYSQL_DATABASE: pvtw_test
         ports:
           - 3306/tcp
