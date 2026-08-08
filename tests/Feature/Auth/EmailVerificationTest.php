@@ -44,7 +44,7 @@ test('email can be verified', function (): void {
     $response = actingAs($user)->get($verificationUrl);
 
     Event::assertDispatched(Verified::class);
-    expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
+    expect($user->fresh()?->hasVerifiedEmail())->toBeTrue();
     $response->assertRedirect(route('home', absolute: false).'?verified=1');
 });
 
@@ -59,7 +59,7 @@ test('email is not verified with invalid hash', function (): void {
 
     actingAs($user)->get($verificationUrl);
 
-    expect($user->fresh()->hasVerifiedEmail())->toBeFalse();
+    expect($user->fresh()?->hasVerifiedEmail())->toBeFalse();
 });
 
 test('user is redirected to home when email is already verified', function (): void {

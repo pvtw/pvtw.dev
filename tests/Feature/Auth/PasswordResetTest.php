@@ -32,7 +32,7 @@ test('reset password screen can be rendered', function (): void {
 
     post('/forgot-password', ['email' => $user->email]);
 
-    Notification::assertSentTo($user, ResetPassword::class, function ($notification): bool {
+    Notification::assertSentTo($user, ResetPassword::class, function (ResetPassword $notification): bool {
         $response = get('/reset-password/'.$notification->token);
 
         $response->assertStatus(200);
@@ -48,7 +48,7 @@ test('password can be reset with valid token', function (): void {
 
     post('/forgot-password', ['email' => $user->email]);
 
-    Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user): bool {
+    Notification::assertSentTo($user, ResetPassword::class, function (ResetPassword $notification) use ($user): bool {
         $response = post('/reset-password', [
             'token' => $notification->token,
             'email' => $user->email,

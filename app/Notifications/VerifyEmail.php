@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\URL;
 
+/**
+ * @codeCoverageIgnore
+ */
 final class VerifyEmail extends Notification implements ShouldQueue
 {
     use Queueable;
