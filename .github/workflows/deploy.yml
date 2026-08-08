@@ -2,7 +2,8 @@ name: deploy
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 concurrency: production_environment
 
@@ -15,7 +16,6 @@ jobs:
         image: mysql:8
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_HOST: mysql
           MYSQL_DATABASE: pvtw_test
         ports:
           - 3306:3306
@@ -91,12 +91,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.5"
+          php-version: 8.5
 
       - name: Install dependencies
         run: composer install
