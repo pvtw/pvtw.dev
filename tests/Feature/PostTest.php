@@ -19,3 +19,9 @@ test('post screen can be rendered', function (): void {
 
     $response->assertStatus(200);
 });
+
+test('post screen returns a 404 when the post does not exist with that slug', function (): void {
+    $response = get(route('posts.show', 'non-exist'));
+
+    $response->assertStatus(404);
+});

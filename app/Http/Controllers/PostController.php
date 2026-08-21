@@ -44,7 +44,9 @@ final readonly class PostController
                 ->where('slug', $slug)
                 ->first();
 
-            throw_if( ! $post, ModelNotFoundException::class);
+            if ( ! $post) {
+                throw new ModelNotFoundException()->setModel(Post::class, $slug);
+            }
 
             return $post;
         });
