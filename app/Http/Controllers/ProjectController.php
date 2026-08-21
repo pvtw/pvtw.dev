@@ -20,7 +20,15 @@ final readonly class ProjectController
         $projects = Cache::tags(['projects'])->rememberForever('projects.index', function (): Collection {
             return Project::query()
                 ->latest('started_at')
-                ->get();
+                ->get([
+                    'id',
+                    'title',
+                    'description',
+                    'repository_url',
+                    'repository_label',
+                    'started_at',
+                    'finished_at',
+                ]);
         });
 
         return view('pages::projects', [

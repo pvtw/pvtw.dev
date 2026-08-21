@@ -23,7 +23,12 @@ final readonly class PostController
             return Post::query()
                 ->where('published_at', '!=', null)
                 ->latest('published_at')
-                ->get();
+                ->get([
+                    'id',
+                    'title',
+                    'slug',
+                    'published_at',
+                ]);
         });
 
         return view('pages::posts.index', [
@@ -42,7 +47,15 @@ final readonly class PostController
             $post = Post::query()
                 ->where('published_at', '!=', null)
                 ->where('slug', $slug)
-                ->first();
+                ->first([
+                    'id',
+                    'title',
+                    'slug',
+                    'content',
+                    'meta_title',
+                    'meta_description',
+                    'published_at',
+                ]);
 
             if ( ! $post) {
                 throw new ModelNotFoundException()->setModel(Post::class, $slug);
