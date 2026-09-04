@@ -13,7 +13,7 @@ test('abort when not logged in', function (): void {
 
     $response = get('_test');
 
-    $response->assertStatus(403);
+    $response->assertStatus(404);
 });
 
 test('abort when user is not admin', function (): void {
@@ -22,7 +22,7 @@ test('abort when user is not admin', function (): void {
 
     $response = actingAs($user)->get('_test');
 
-    $response->assertStatus(403);
+    $response->assertStatus(404);
 });
 
 test('return success response when user is admin', function (): void {

@@ -17,7 +17,7 @@ final readonly class EnsureUserIsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        abort_if( ! $request->user()?->is_admin, 403);
+        abort_if( ! $request->user()?->is_admin, 404);
 
         return $next($request);
     }
