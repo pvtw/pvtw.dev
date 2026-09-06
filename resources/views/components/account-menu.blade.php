@@ -16,6 +16,9 @@
     </summary>
     <ul class="absolute top-12 right-0 bg-gray-100 dark:bg-gray-900 text-black dark:text-white p-2 border border-gray-500 rounded-sm shadow-sm">
         <li>
+            <a href="{{ route('settings') }}" class="block w-auto text-xl text-nowrap text-left font-bold px-4 pt-2 pb-1 border-b-4 border-transparent hover:border-fuchsia-500 transition-colors duration-200 outline-none focus-visible:ring-3 focus-visible:ring-blue-500">Settings</a>
+        </li>
+        <li>
             <form method="post" action="{{ route('logout') }}">
                 @csrf
 
