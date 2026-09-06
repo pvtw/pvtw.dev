@@ -23,9 +23,9 @@ use Override;
  * @property string $email
  * @property CarbonInterface|null $email_verified_at
  * @property string|null $password
+ * @property string|null $remember_token
  * @property string|null $github_id
  * @property string|null $avatar_url
- * @property string|null $remember_token
  * @property CarbonInterface|null $created_at
  * @property CarbonInterface|null $updated_at
  * @property CarbonInterface|null $deleted_at
@@ -61,9 +61,9 @@ final class User extends Authenticatable implements MustVerifyEmail
             'email' => 'string',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'remember_token' => 'string',
             'github_id' => 'string',
             'avatar_url' => 'string',
-            'remember_token' => 'string',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
