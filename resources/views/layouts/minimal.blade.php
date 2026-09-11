@@ -5,7 +5,7 @@
 ])
 
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth scroll-pt-16">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,6 +38,7 @@
 
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @stack('head')
     </head>
     <body class="antialiased bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
         :class="{ dark: theme == 'system' ? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches : theme == 'dark' }"
@@ -48,6 +49,16 @@
                 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
                     this.theme = event.matches ? 'dark' : 'light';
                 });
+            },
+            toggleTheme() {
+                if(this.theme == 'light') {
+                    this.theme = 'dark'
+                } else if(this.theme == 'dark') {
+                    this.theme = 'system'
+                } else {
+                    this.theme = 'light'
+                }
+                window.localStorage.setItem('theme', this.theme)
             }
         }">
         <div id="page">
@@ -55,5 +66,6 @@
         </div>
 
         @livewireScripts
+        @stack('scripts')
     </body>
 </html>
