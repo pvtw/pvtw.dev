@@ -37,7 +37,7 @@ new class () extends Component
             $this->reset();
             
             throw ValidationException::withMessages([
-                'new_password' => 'The passwords do not match',
+                'new_password' => 'The passwords do not match.',
             ]);
         }
 
@@ -50,14 +50,14 @@ new class () extends Component
 };
 ?>
 
-<x-card>
-    <h2 class="text-lg text-black dark:text-white font-bold">Update Your Password</h2>
+<div>
+    <h2 class="text-lg lg:text-xl text-black dark:text-white font-bold">Update Your Password</h2>
 
     <div class="mt-4">
         <form wire:submit="save">
             <x-input-group>
                 <x-label for="form-current-password">Current Password</x-label>
-                <x-text-input type="password" id="form-current-password" required autofocus autocomplete="current-password" wire:model="current_password" />
+                <x-text-input type="password" id="form-current-password" required autocomplete="current-password" wire:model="current_password" />
                 @error('current_password')
                     <x-error>{{ $message }}</x-error>
                 @enderror
@@ -82,4 +82,4 @@ new class () extends Component
             <x-submit-button>Update</x-submit-button>
         </form>
     </div>
-</x-card>
+</div>
